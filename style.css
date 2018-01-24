@@ -1,0 +1,523 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  border: 0;
+  outline: none;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+}
+
+.wrapper {
+  min-height: 100%;
+}
+
+wrapper::after {
+  content: "";
+  height: 50px;
+}
+
+.container {
+  width: 940px;
+  margin: 0 auto;
+  position: relative;
+}
+
+header {
+  height: 80px;
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+  background-color: #ffffff;
+}
+
+footer {
+  height: 50px;
+  margin-top: -50px;
+  background-color: #414141;
+}
+
+.copyright {
+  display: inline-block;
+  height: inherit;
+}
+
+.copyright__text {
+  font-size: 14px;
+  line-height: 50px;
+  color: rgb(156,156,156);
+  font-family: "FiraSans-Light";
+}
+
+.socials {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
+
+.social__element {
+  display: inline-block;
+  margin-left: 10px;
+  line-height: 50px;
+}
+
+.social__link {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #9c9c9c;
+  vertical-align: middle;
+}
+
+.fb {
+  background-image: url("./images/fb140x90.png");
+  background-size: cover;
+  background-position: center;
+}
+.tw {
+  background-image: url("./images/tw140x90.png");
+  background-size: cover;
+  background-position: center;
+}
+.git {
+  background-image: url("./images/git140x90.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.fb:hover {
+  background-color: #4363a6;
+}
+.tw:hover {
+  background-color: #6ac3d9;
+}
+.git:hover {
+  background-color: #fff;
+}
+
+.user {
+  width: 300px;
+  height: 235px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+  background-color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -117px 0 0 -150px;
+}
+
+.user-logo {
+  display: inline-block;
+  height: inherit;
+  vertical-align: top;
+}
+
+.user-info {
+  width: inherit;
+  height: 155px;
+}
+
+.user__pic {
+  display: block;
+  width: 140px;
+  height: 140px;
+  border-radius: 70px;
+  background-color: #f6f6f6;
+  border: 1px solid #d6d6d6;
+  margin: 0 auto;
+  position: relative;
+  top: -70px;
+}
+
+.user__pic_logo {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  top: 0;
+  vertical-align: middle;
+}
+
+.user-name {
+  height: 85px;
+  width: inherit;
+  margin-top: -70px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.user-name_logo {
+  display: inline-block;
+  height: 80px;
+  margin-top: 0;
+}
+
+.user-name__name {
+  display: inline-block;
+  font-size: 21px;
+  line-height: 28px;
+  color: rgb(65,65,65);
+  font-family: "OpenSans-Semibold";
+  font-weight: bold;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.user-name__name_logo {
+  font-size: 18px;
+  margin-left: 10px;
+  line-height: 80px;
+}
+
+.user-link {
+  width: 300px;
+  height: 80px;
+  background-color: #33c1e3;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  position: relative;
+}
+
+.user-link__element {
+  width: 138px;
+  height: 40px;
+  border-radius: 20px;
+  border: 2px solid #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -20px 0 0 -69px;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 40px;
+  color: rgb(255,255,255);
+  font-family: "FiraSans-Bold";
+  font-weight: bold;
+  text-align: center;
+}
+
+.user-link__element:hover {
+  background-color: #fff;
+  color: #33c1e3;
+}
+
+.contacts {
+  display: inline-block;
+  height: inherit;
+  position: absolute;
+  right: 0;
+  line-height: 80px;
+}
+
+.contacts__text {
+  display: inline-block;
+  font-size: 18px;
+  height: 35px;
+  line-height: 35px;
+  color: rgb(50,195,229);
+  font-family: "FiraSans-Bold";
+  font-weight: bold;
+  border-bottom: 1px dotted rgb(50,195,229);
+  text-transform: capitalize;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.contacts__text_active {
+  color: #e75f61;
+  border-color: #e75f61;
+}
+
+.contacts__list {
+  position: relative;
+  left: -65px;
+  top: -10px;
+  background-color: #fff;
+  width: 200px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.contacts__list::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 94px;
+  height: 11px;
+  width: 11px;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  transform: rotate(45deg);
+  background: #fff;
+}
+
+.contacts__elem {
+  height: 45px;
+  line-height: 45px;
+  background-position: 10px center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid #eee;
+}
+
+.contacts__elem:last-child {
+  border: none;
+}
+
+.contacts__elem-text {
+  display: inline-block;
+  margin-left: 35px;
+  font-size: 13px;
+  color: rgb(65,65,65);
+  font-family: "Fira Sans";
+}
+
+.contacts__elem_email {
+  background-image: url("./images/email.png");
+}
+.contacts__elem_phone {
+  background-image: url("./images/phone.png");
+}
+.contacts__elem_skype {
+  background-image: url("./images/skype.png");
+}
+
+.content {
+  margin-top: 25px;
+}
+
+.sidebar {
+  display: inline-block;
+  width: 220px;
+  vertical-align: top;
+}
+
+.navigation__elem {
+  height: 45px;
+  border-right: 6px solid transparent;
+  text-align: right;
+  padding-right: 25px;
+  color: rgb(65,65,65);
+}
+
+.navigation__elem_active {
+  color: #4db1cd;
+  border-right-color: #4db1cd;
+}
+
+.navigation__link {
+  height: 45px;
+  width: 100%;
+  font-size: 18px;
+  font-family: "Fira Sans";
+  line-height: 45px;
+  cursor: pointer;
+}
+
+.navigation__link-text {
+  font-size: 18px;
+  font-family: "Fira Sans";
+  line-height: 45px;
+}
+
+.main-content {
+  display: inline-block;
+  vertical-align: top;
+  width: 720px;
+}
+
+.user-img {
+  display: inline-block;
+  vertical-align: top;
+  width: 340px;
+}
+
+.user-img__photo {
+  display: block;
+  width: 220px;
+  height: 220px;
+  border-radius: 110px;
+  background-color: #f5f5f5;
+  border: 5px solid #ffffff;
+  margin: 0 auto;
+}
+
+.user-about {
+  display: inline-block;
+  vertical-align: top;
+  width: 380px;
+}
+
+.content__header {
+  height: 45px;
+  font-size: 35px;
+  line-height: 45px;
+  color: rgb(65,65,65);
+  font-family: "Fira Sans";
+}
+
+.user-about__text {
+  margin-top: 25px;
+  height: 300px;
+  font-size: 18px;
+  line-height: 26px;
+  color: rgb(100,100,100);
+  font-family: "Fira Sans";
+  overflow: auto;
+}
+
+.user-about__download-link {
+  display: inline-block;
+  width: 173px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #f6f6f6;
+  border: 2px solid #e75f61;
+  font-size: 14px;
+  line-height: 40px;
+  color: rgb(232,95,97);
+  font-family: "Open Sans";
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+.user-about__download-link:hover {
+  background-color: #e75f61;
+  color: #f6f6f6;
+}
+
+.download {
+  text-align: right;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.content-wrap {
+  margin-left: 20px;
+}
+
+.content-wrap-internal {
+  margin-top: 25px;
+  margin-bottom: 100px;
+}
+
+.career-image {
+  display: inline-block;
+  width: 220px;
+  height: 220px;
+  border-radius: 9px;
+  background-color: #595959;
+  vertical-align: top;
+  background-image: url("./images/pravda.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.career-path {
+  display: inline-block;
+  vertical-align: top;
+  width: 380px;
+  margin-left: 100px;
+}
+
+.career-path__element {
+  position: relative;
+  width: 380px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  min-height: 120px;
+}
+
+.career-path__company-name {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 21px;
+  color: rgb(90,90,90);
+  font-family: "Fira Sans";
+}
+.career-path__post {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  font-size: 18px;
+  color: rgb(100,100,100);
+  font-family: "Fira Sans";
+}
+.career-path__time {
+  position: absolute;
+  top: 80px;
+  left: 20px;
+  font-size: 18px;
+  color: rgb(100,100,100);
+  font-family: "Fira Sans";
+}
+
+.portfolio-tile {
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 210px;
+  height: 280px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+  background-color: #ffffff;
+  overflow: hidden;
+  position: relative;
+}
+
+.portfolio-tile__image {
+  width: inherit;
+  height: 170px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.image-sistar {
+  background-image: url("./images/sistar.jpg");
+}
+
+.image-ad {
+  background-image: url("./images/ad.jpg");
+}
+
+.portfolio-tile__name {
+  position: absolute;
+  left: 20px;
+  bottom: 75px;
+  font-size: 21px;
+  color: rgb(51,193,227);
+  font-family: "Fira Sans";
+}
+
+.portfolio-tile__about {
+  position: absolute;
+  left: 20px;
+  bottom: 50px;
+  font-size: 14px;
+  color: rgb(65,65,65);
+  font-family: "Fira Sans";
+}
+.portfolio-tile__type {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  font-size: 18px;
+  color: rgb(174,174,174);
+  font-family: "Font Awesome";
+}
