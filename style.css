@@ -218,6 +218,8 @@ footer {
   position: absolute;
   right: 0;
   line-height: 80px;
+  text-align: right;
+  cursor: pointer;
 }
 
 .contacts__text {
@@ -231,22 +233,29 @@ footer {
   border-bottom: 1px dotted rgb(50,195,229);
   text-transform: capitalize;
   vertical-align: middle;
-  cursor: pointer;
 }
 
-.contacts__text_active {
+.contacts:hover .contacts__text {
   color: #e75f61;
   border-color: #e75f61;
 }
 
+.contacts:hover .contacts__list {
+  display: block;
+}
+
 .contacts__list {
+  display: none;
   position: relative;
-  left: -65px;
+  left: 70px;
   top: -10px;
   background-color: #fff;
   width: 200px;
   border-radius: 10px;
   border: 1px solid #ddd;
+  z-index: 1;
+  text-align: left;
+  cursor: default;
 }
 
 .contacts__list::before {
