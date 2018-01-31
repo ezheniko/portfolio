@@ -1,4 +1,55 @@
 @font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.woff?8q1ja6') format('woff'),
+  url('fonts/icomoon.svg?8q1ja6#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-twitter-with-circle:before {
+  content: "\e903";
+}
+.icon-facebook-with-circle:before {
+  content: "\e904";
+}
+.icon-github-square:before {
+  content: "\e905";
+}
+.icon-envelope:before {
+  content: "\e902";
+}
+.icon-briefcase:before {
+  content: "\e901";
+}
+.icon-rocket:before {
+  content: "\e900";
+}
+.icon-phone:before {
+  content: "\e942";
+}
+.icon-user-tie:before {
+  content: "\e976";
+}
+.icon-skype:before {
+  content: "\73";
+}
+
+@font-face {
   font-family: 'FiraSans-Bold';
   src: url('./fonts/firasans-bold-webfont.woff') format('woff'),
        url('./fonts/firasans-bold-webfont.svg#fira_sansbold') format('svg');
@@ -108,34 +159,24 @@ footer {
   width: 30px;
   height: 30px;
   border-radius: 15px;
-  background-color: #9c9c9c;
   vertical-align: middle;
+  line-height: 30px;
+  text-align: center;
 }
 
-.fb {
-  background-image: url("./images/fb140x90.png");
-  background-size: cover;
-  background-position: center;
-}
-.tw {
-  background-image: url("./images/tw140x90.png");
-  background-size: cover;
-  background-position: center;
-}
-.git {
-  background-image: url("./images/git140x90.png");
-  background-size: cover;
-  background-position: center;
+.social__icon {
+  font-size: 30px;
+  color: #9c9c9c;
 }
 
 .fb:hover {
-  background-color: #4363a6;
+  color: #4363a6;
 }
 .tw:hover {
-  background-color: #6ac3d9;
+  color: #6ac3d9;
 }
 .git:hover {
-  background-color: #fff;
+  color: #fff;
 }
 
 .user {
@@ -307,8 +348,6 @@ footer {
 .contacts__elem {
   height: 45px;
   line-height: 45px;
-  background-position: 10px center;
-  background-repeat: no-repeat;
   border-bottom: 1px solid #eee;
 }
 
@@ -316,22 +355,21 @@ footer {
   border: none;
 }
 
+.contacts__elem-icon {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 15px;
+  color: rgb(50,195,229);
+  vertical-align: middle;
+}
+
 .contacts__elem-text {
   display: inline-block;
-  margin-left: 35px;
+  margin-left: 10px;
   font-size: 13px;
   color: rgb(65,65,65);
   font-family: "Fira Sans";
-}
-
-.contacts__elem_email {
-  background-image: url("./images/email.png");
-}
-.contacts__elem_phone {
-  background-image: url("./images/phone.png");
-}
-.contacts__elem_skype {
-  background-image: url("./images/skype.png");
+  vertical-align: middle;
 }
 
 .content {
@@ -370,10 +408,16 @@ footer {
   cursor: pointer;
 }
 
+.navigation__icon {
+  font-size: 18px;
+  line-height: 45px;
+}
+
 .navigation__link-text {
   font-size: 18px;
   font-family: "Fira Sans";
   line-height: 45px;
+  margin-left: 5px;
 }
 
 .main-content {

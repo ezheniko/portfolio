@@ -22,9 +22,9 @@
         <div class="contacts">
           <span class="contacts__text contacts__text_active">contacts</span>
           <ul class="contacts__list" hidden>
-            <li class="contacts__elem contacts__elem_email"><span class="contacts__elem-text">ezh.eny.kozhevik@gmail.com</span></li>
-            <li class="contacts__elem contacts__elem_phone"><span class="contacts__elem-text">+380 67 587 05 79</span></li>
-            <li class="contacts__elem contacts__elem_skype"><span class="contacts__elem-text">ezhenkozhev</span></li>
+            <li class="contacts__elem"><span class="contacts__elem-icon icon-envelope"></span><span class="contacts__elem-text">ezh.eny.kozhevik@gmail.com</span></li>
+            <li class="contacts__elem"><span class="contacts__elem-icon icon-phone"></span><span class="contacts__elem-text">+380 67 587 05 79</span></li>
+            <li class="contacts__elem"><span class="contacts__elem-icon icon-skype"></span><span class="contacts__elem-text">ezhenkozhev</span></li>
           </ul>
         </div>
       </div>
@@ -33,11 +33,24 @@
       <div class="container">
         <aside class="sidebar">
           <nav class="navigation">
-            <ul class="navigation__list">
-              <li class="navigation__elem"><a href="./about.html" class="navigation__link"><span class="navigation__link-text">About me<span/></a></li>
-              <li class="navigation__elem navigation__elem_active"><a href="#" class="navigation__link"><span class="navigation__link-text">Career</span></a></li>
-              <li class="navigation__elem"><a href="./portfolio.html" class="navigation__link"><span class="navigation__link-text">Portfolio</span></a></li>
-            </ul>
+              <ul class="navigation__list">
+                <li class="navigation__elem"><a href="./about.html" class="navigation__link">
+                  <span class="icon-user-tie navigation__icon"></span>
+                  <span class="navigation__link-text">
+                  About me
+                  <span/></a>
+                </li>
+                <li class="navigation__elem navigation__elem_active"><a href="#" class="navigation__link">
+                  <span class="icon-rocket navigation__icon"></span>
+                  <span class="navigation__link-text">
+                  Career</span></a>
+                </li>
+                <li class="navigation__elem"><a href="./portfolio.html" class="navigation__link">
+                  <span class="icon-briefcase navigation__icon"></span>
+                  <span class="navigation__link-text">
+                  Portfolio</span></a>
+                </li>
+              </ul>
           </nav>
         </aside>
         <main class="main-content">
@@ -87,13 +100,19 @@
       </div>
       <ul class="socials">
         <li class="social__element">
-          <a href="https://www.facebook.com/eugene.kozhevnikov.3" class="social__link fb"></a>
+          <a href="https://www.facebook.com/eugene.kozhevnikov.3" class="social__link">
+            <span class="icon-facebook-with-circle social__icon fb"></span>
+          </a>
         </li>
         <li class="social__element">
-          <a href="https://twitter.com/posol_spok" class="social__link tw"></a>
+          <a href="https://twitter.com/posol_spok" class="social__link">
+            <span class="icon-twitter-with-circle social__icon tw"></span>
+          </a>
         </li>
         <li class="social__element">
-          <a href="https://github.com/ezheniko" class="social__link git"></a>
+          <a href="https://github.com/ezheniko" class="social__link">
+            <span class="icon-github-square social__icon git"></span>
+          </a>
         </li>
       </ul>
     </div>
