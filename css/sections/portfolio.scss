@@ -1,0 +1,63 @@
+.portfolio-tile {
+  display: inline-block;
+  margin-left: rem(20px);
+  margin-bottom: rem(20px);
+  border-radius: rem(10px);
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+.portfolio-tile__link {
+  display: block;
+  width: rem(210px);
+  height: rem(280px);
+  background-color: #fff;
+  position: relative;
+
+  &:hover .portfolio-tile__name{
+    color: $red;
+  }
+}
+
+.portfolio-tile__image {
+  width: inherit;
+  height: rem(170px);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.image-sistar {
+  background-image: url("../images/sistar.jpg");
+}
+
+.image-ad {
+  background-image: url("../images/ad.jpg");
+}
+
+.portfolio-tile__name {
+  position: absolute;
+  left: rem(20px);
+  bottom: rem(75px);
+  font-size: rem(21px);
+  color: $blue;
+  font-family: "Fira Sans";
+}
+
+.portfolio-tile__about {
+  position: absolute;
+  left: rem(20px);
+  bottom: rem(50px);
+  font-size: rem(14px);
+  color: $grey;
+  font-family: "FiraSans-Light";
+}
+
+.portfolio-tile__type {
+  position: absolute;
+  left: rem(20px);
+  bottom: rem(20px);
+  font-size: rem(14px);
+  color: rgb(174,174,174);
+  font-family: "FiraSans-Bold";
+}

@@ -1,0 +1,32 @@
+//responsive
+@function rem($px) {
+  @return $px / $html-font-size + 0rem;
+}
+
+@mixin inline-block ($valign: top) {
+  display: inline-block;
+  vertical-align: $valign;
+}
+
+@mixin transition ($transition) {
+  transition: $transition;
+  -o-transition: $transition;
+  -moz-transition: $transition;
+  -webkit-transition: $transition;
+  -ms-transition: $transition;
+}
+
+@mixin center-center() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+
+@mixin round($size) {
+  width: $size;
+  height: $size;
+  border-radius: $size / 2;
+}

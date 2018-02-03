@@ -1,0 +1,646 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon.woff?8q1ja6") format("woff"), url("../fonts/icomoon.svg?8q1ja6#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change. fonts */
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-twitter-with-circle:before {
+  content: "\e903";
+}
+
+.icon-facebook-with-circle:before {
+  content: "\e904";
+}
+
+.icon-github-square:before {
+  content: "\e905";
+}
+
+.icon-envelope:before {
+  content: "\e902";
+}
+
+.icon-briefcase:before {
+  content: "\e901";
+}
+
+.icon-rocket:before {
+  content: "\e900";
+}
+
+.icon-phone:before {
+  content: "\e942";
+}
+
+.icon-user-tie:before {
+  content: "\e976";
+}
+
+.icon-skype:before {
+  content: "\73";
+}
+
+@font-face {
+  font-family: 'FiraSans-Bold';
+  src: url("../fonts/firasans-bold-webfont.woff") format("woff"), url("../fonts/firasans-bold-webfont.svg#fira_sansbold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'FiraSans-Light';
+  src: url("../fonts/firasans-light-webfont.woff") format("woff"), url("../fonts/firasans-light-webfont.svg#fira_sanslight") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'fira_sansmedium';
+  src: url("../fonts/firasans-medium-webfont.woff") format("woff"), url("../fonts/firasans-medium-webfont.svg#fira_sansmedium") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Fira Sans';
+  src: url("../fonts/firasans-regular-webfont.woff") format("woff"), url("../fonts/firasans-regular-webfont.svg#fira_sansregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'open_sanssemibold';
+  src: url("../fonts/OpenSans-Semibold-webfont.woff") format("woff"), url("../fonts/OpenSans-Semibold-webfont.svg#open_sanssemibold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-decoration: unset;
+  list-style: none;
+  outline: none;
+  font-size: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-size: 0;
+  background-color: #f5f5f5;
+}
+
+.wrapper {
+  min-height: 100%;
+}
+.wrapper::after {
+  content: "";
+  display: block;
+  height: 3.125rem;
+}
+
+.footer {
+  height: 3.125rem;
+  margin-top: -3.125rem;
+}
+
+.container {
+  width: 940px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.content {
+  margin: 25px 0;
+}
+
+.user {
+  width: 18.75rem;
+  height: 14.6875rem;
+  border-radius: 0.625rem;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+
+.user-info {
+  height: 9.6875rem;
+}
+
+.user__pic {
+  display: block;
+  width: 8.75rem;
+  height: 8.75rem;
+  border-radius: 4.375rem;
+  background-color: #f6f6f6;
+  border: 1px solid #d6d6d6;
+  margin: 0 auto;
+  position: relative;
+  top: -4.375rem;
+}
+
+.user-name {
+  height: 5.3125rem;
+  margin-top: -4.375rem;
+  text-align: center;
+  line-height: 5.3125rem;
+}
+
+.user-name__name {
+  font-size: 1.3125rem;
+  color: #414141;
+  font-family: "open_sanssemibold";
+  text-transform: capitalize;
+}
+
+.user-link {
+  height: 5rem;
+  background-color: #32c3e5;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  position: relative;
+}
+
+.user-link__element {
+  width: 8.625rem;
+  height: 2.5rem;
+  border-radius: 1.25rem;
+  border: 2px solid #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  font-size: 0.875rem;
+  line-height: 2.5rem;
+  color: #fff;
+  font-family: "FiraSans-Bold";
+  text-align: center;
+  transition: .5s;
+}
+.user-link__element:hover {
+  background-color: #fff;
+  color: #32c3e5;
+}
+
+.header {
+  height: 5rem;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+.user-logo {
+  display: inline-block;
+  vertical-align: top;
+  height: inherit;
+}
+
+.user__pic_logo {
+  display: inline-block;
+  vertical-align: middle;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 1.875rem;
+  background-color: #f6f6f6;
+  border: 1px solid #d6d6d6;
+}
+
+.user-name_logo {
+  display: inline-block;
+  vertical-align: middle;
+  height: 5rem;
+}
+
+.user-name__name_logo {
+  font-size: 1.125rem;
+  margin-left: 0.625rem;
+  line-height: 80px;
+  color: #414141;
+  font-family: "Fira Sans";
+  text-transform: capitalize;
+}
+
+.contacts {
+  display: inline-block;
+  vertical-align: top;
+  height: inherit;
+  position: absolute;
+  right: 0;
+  line-height: 5rem;
+  text-align: right;
+  cursor: pointer;
+}
+.contacts:hover .contacts__text {
+  color: #e75f61;
+  border-color: #e75f61;
+}
+.contacts:hover .contacts__list {
+  display: block;
+}
+
+.contacts__text {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 1.125rem;
+  height: 2.1875rem;
+  line-height: 2.1875rem;
+  color: #32c3e5;
+  font-family: "FiraSans-Bold";
+  font-weight: bold;
+  border-bottom: 1px dotted #32c3e5;
+  text-transform: capitalize;
+}
+
+.contacts__list {
+  display: none;
+  position: relative;
+  left: 4.6875rem;
+  top: -0.625rem;
+  background-color: #fff;
+  width: 13.4375rem;
+  border-radius: 0.625rem;
+  border: 1px solid #ddd;
+  z-index: 1;
+  text-align: left;
+  cursor: default;
+}
+
+.contacts__list-triangle {
+  width: 0;
+  border: 10px solid transparent;
+  border-top: none;
+  border-bottom-color: #ddd;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -10px;
+}
+.contacts__list-triangle::after {
+  content: "";
+  border: 10px solid transparent;
+  border-top: none;
+  border-bottom-color: #fff;
+  position: absolute;
+  top: 2px;
+  left: -10px;
+}
+
+.contacts__elem {
+  height: 2.8125rem;
+  line-height: 2.8125rem;
+  border-bottom: 1px solid #eee;
+}
+.contacts__elem:last-child {
+  border: none;
+}
+
+.contacts__elem-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.625rem;
+  font-size: 0.9375rem;
+  color: #32c3e5;
+}
+
+.contacts__elem-text {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.625rem;
+  font-size: 0.8125rem;
+  color: #414141;
+  font-family: "Fira Sans";
+}
+
+.sidebar {
+  display: inline-block;
+  vertical-align: top;
+  width: 13.75rem;
+}
+
+.navigation__elem {
+  margin-left: -31.25rem;
+  transition: 1s;
+}
+
+.navigation__link {
+  display: block;
+  height: 2.8125rem;
+  width: 13.75rem;
+  font-size: 1.125rem;
+  font-family: "Fira Sans";
+  line-height: 2.8125rem;
+  cursor: pointer;
+  border-right: 6px solid transparent;
+  text-align: right;
+  padding-right: 1.5625rem;
+  color: #414141;
+  box-sizing: border-box;
+}
+.navigation__link:hover {
+  color: #32c3e5;
+}
+
+.navigation__link_active {
+  color: #32c3e5;
+  border-right-color: #32c3e5;
+}
+
+.navigation__icon {
+  font-size: 1.125rem;
+  line-height: 2.8125rem;
+}
+
+.navigation__link-text {
+  font-size: 1.125rem;
+  font-family: "Fira Sans";
+  line-height: 2.8125rem;
+  margin-left: 0.3125rem;
+}
+
+.main-content {
+  display: inline-block;
+  vertical-align: top;
+  width: 45rem;
+}
+
+.content__header {
+  height: 2.8125rem;
+  font-size: 2.1875rem;
+  line-height: 2.8125rem;
+  color: #414141;
+  font-family: "Fira Sans";
+}
+
+.content__header_margin {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.content-info {
+  position: relative;
+  text-align: justify;
+}
+.content-info::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+
+.user-img {
+  display: inline-block;
+  vertical-align: top;
+  width: 21.25rem;
+}
+
+.user-img__photo {
+  display: block;
+  width: 13.75rem;
+  height: 13.75rem;
+  border-radius: 6.875rem;
+  background-color: #f5f5f5;
+  border: 5px solid #fff;
+  margin: 0 auto;
+}
+
+.user-about {
+  display: inline-block;
+  vertical-align: top;
+  width: 23.75rem;
+}
+
+.user-about__text {
+  margin-top: 1.5625rem;
+  height: 18.75rem;
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+  color: #646464;
+  font-family: "Fira Sans";
+  overflow: auto;
+}
+
+.user-about__download-link {
+  display: inline-block;
+  width: 10.8125rem;
+  height: 2.5rem;
+  border-radius: 1.25rem;
+  background-color: transparent;
+  border: 2px solid #e75f61;
+  font-size: 0.875rem;
+  line-height: 2.5rem;
+  color: #e75f61;
+  font-family: "Open Sans";
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+.user-about__download-link:hover {
+  background-color: #e75f61;
+  color: #f6f6f6;
+}
+
+.download {
+  text-align: right;
+  margin-top: 1.5625rem;
+}
+
+.career-image {
+  display: inline-block;
+  vertical-align: top;
+  width: 13.75rem;
+  height: 13.75rem;
+  border-radius: 0.5625rem;
+  background-color: #5a5a5a;
+  background-image: url("../images/pravda.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-left: 1.25rem;
+}
+
+.career-path {
+  display: inline-block;
+  vertical-align: top;
+  width: 23.75rem;
+}
+
+.career-path__element {
+  width: 23.75rem;
+  border-radius: 0.625rem;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  margin-bottom: 1.25rem;
+  cursor: pointer;
+  padding: 20px;
+  transition: .5s;
+}
+.career-path__element * {
+  transition: .5s;
+}
+.career-path__element:hover {
+  background-color: #32c3e5;
+}
+.career-path__element:hover * {
+  color: #fff;
+}
+
+.career-path__company-name {
+  font-size: 1.3125rem;
+  color: #5a5a5a;
+  font-family: "Fira Sans";
+}
+
+.career-path__post {
+  font-size: 1.125rem;
+  color: #727272;
+  font-family: "FiraSans-Light";
+}
+
+.career-path__time {
+  font-size: 1.125rem;
+  color: #727272;
+  font-family: "FiraSans-Light";
+}
+
+.portfolio-tile {
+  display: inline-block;
+  margin-left: 1.25rem;
+  margin-bottom: 1.25rem;
+  border-radius: 0.625rem;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.portfolio-tile__link {
+  display: block;
+  width: 13.125rem;
+  height: 17.5rem;
+  background-color: #fff;
+  position: relative;
+}
+.portfolio-tile__link:hover .portfolio-tile__name {
+  color: #e75f61;
+}
+
+.portfolio-tile__image {
+  width: inherit;
+  height: 10.625rem;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.image-sistar {
+  background-image: url("../images/sistar.jpg");
+}
+
+.image-ad {
+  background-image: url("../images/ad.jpg");
+}
+
+.portfolio-tile__name {
+  position: absolute;
+  left: 1.25rem;
+  bottom: 4.6875rem;
+  font-size: 1.3125rem;
+  color: #32c3e5;
+  font-family: "Fira Sans";
+}
+
+.portfolio-tile__about {
+  position: absolute;
+  left: 1.25rem;
+  bottom: 3.125rem;
+  font-size: 0.875rem;
+  color: #414141;
+  font-family: "FiraSans-Light";
+}
+
+.portfolio-tile__type {
+  position: absolute;
+  left: 1.25rem;
+  bottom: 1.25rem;
+  font-size: 0.875rem;
+  color: #aeaeae;
+  font-family: "FiraSans-Bold";
+}
+
+.footer {
+  background-color: #414141;
+}
+
+.copyright {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.copyright__text {
+  font-size: 0.875rem;
+  line-height: 3.125rem;
+  color: #9c9c9c;
+  font-family: "FiraSans-Light";
+}
+
+.socials {
+  display: inline-block;
+  vertical-align: top;
+  position: absolute;
+  right: 0;
+}
+
+.social__element {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 0.625rem;
+  line-height: 3.125rem;
+}
+
+.social__link {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1.875rem;
+  height: 1.875rem;
+  border-radius: 0.9375rem;
+  text-align: center;
+}
+
+.social__icon {
+  font-size: 1.875rem;
+  color: #9c9c9c;
+}
+
+.fb:hover {
+  color: #4363a6;
+}
+
+.tw:hover {
+  color: #6ac3d9;
+}
+
+.git:hover {
+  color: #fff;
+}
+
+/*# sourceMappingURL=main.css.map */

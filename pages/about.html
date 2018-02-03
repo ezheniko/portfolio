@@ -4,27 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="./../style.css">
+  <title>About me</title>
+  <link rel="stylesheet" href="./../css/main.css">
   <script src="../script.js"></script>
 </head>
 <body>
   <div class="wrapper">
-    <header>
+    <header class="header">
       <div class="container">
         <div class="user-logo">
-          <img src="./../images/userpic.jpg" alt="User logo" class="user__pic user__pic_logo">
-          <div class="user-name user-name_logo">
-            <span class="user-name__name user-name__name_logo">yevhen</span>
-            <span class="user-name__name user-name__name_logo">kozhevnikov</span>
+          <img src="./../images/userpic.jpg" alt="User logo" class="user__pic_logo">
+          <div class="user-name_logo">
+            <span class="user-name__name_logo">yevhen kozhevnikov</span>
           </div>
         </div>
         <div class="contacts">
           <span class="contacts__text">contacts</span>
-          <ul class="contacts__list" >
-            <li class="contacts__elem"><span class="contacts__elem-icon icon-envelope"></span><span class="contacts__elem-text">ezh.eny.kozhevik@gmail.com</span></li>
-            <li class="contacts__elem"><span class="contacts__elem-icon icon-phone"></span><span class="contacts__elem-text">+380 67 587 05 79</span></li>
-            <li class="contacts__elem"><span class="contacts__elem-icon icon-skype"></span><span class="contacts__elem-text">ezhenkozhev</span></li>
+          <ul class="contacts__list">
+            <div class="contacts__list-triangle"></div>
+            <li class="contacts__elem">
+              <span class="contacts__elem-icon icon-envelope"></span>
+              <span class="contacts__elem-text">ezh.eny.kozhevik@gmail.com</span>
+            </li>
+            <li class="contacts__elem">
+              <span class="contacts__elem-icon icon-phone"></span>
+              <span class="contacts__elem-text">+380 67 587 05 79</span>
+            </li>
+            <li class="contacts__elem">
+              <span class="contacts__elem-icon icon-skype"></span>
+              <span class="contacts__elem-text">ezhenkozhev</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -34,7 +43,7 @@
         <aside class="sidebar">
           <nav class="navigation">
             <ul class="navigation__list">
-              <li class="navigation__elem navigation__elem_active"><a href="#" class="navigation__link">
+              <li class="navigation__elem"><a href="#" class="navigation__link navigation__link_active">
                 <span class="icon-user-tie navigation__icon"></span>
                 <span class="navigation__link-text">
                 About me
@@ -72,10 +81,10 @@
       </div>
     </div>
   </div>
-  <footer>
+  <footer class="footer">
     <div class="container">
       <div class="copyright">
-        <span class="copyright__text">© Дизайн сайта был разработан Jack++</span>
+        <span class="copyright__text">&copy; Дизайн сайта был разработан Jack++ &copy;</span>
       </div>
       <ul class="socials">
         <li class="social__element">

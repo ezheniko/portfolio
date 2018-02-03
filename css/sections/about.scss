@@ -1,0 +1,53 @@
+.user-img {
+  @include inline-block();
+  width: rem(340px);
+}
+
+.user-img__photo {
+  display: block;
+  @include round(rem(220px));
+  background-color: #f5f5f5;
+  border: 5px solid #fff;
+  margin: 0 auto;
+}
+
+.user-about {
+  @include inline-block();
+  width: rem(380px);
+}
+
+.user-about__text {
+  margin-top: rem(25px);
+  height: rem(300px);
+  font-size: rem(18px);
+  line-height: rem(26px);
+  color: rgb(100,100,100);
+  font-family: "Fira Sans";
+  overflow: auto;
+}
+
+.user-about__download-link {
+  display: inline-block;
+  width: rem(173px);
+  height: rem(40px);
+  border-radius: rem(20px);
+  background-color: transparent;
+  border: 2px solid $red;
+  font-size: rem(14px);
+  line-height: rem(40px);
+  color: $red;
+  font-family: "Open Sans";
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $red;
+    color: #f6f6f6;
+  }
+}
+
+.download {
+  text-align: right;
+  margin-top: rem(25px);
+}

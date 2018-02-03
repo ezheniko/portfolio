@@ -1,0 +1,122 @@
+.header {
+  height: rem($header-height);
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+  background-color: #fff;
+}
+
+.user-logo {
+  @include inline-block();
+  height: inherit;
+}
+
+.user__pic_logo {
+  @include inline-block(middle);
+  @include round (rem(60px));
+  background-color: #f6f6f6;
+  border: 1px solid #d6d6d6;
+}
+
+.user-name_logo {
+  @include inline-block(middle);
+  height: rem($header-height);
+}
+
+.user-name__name_logo {
+  font-size: rem(18px);
+  margin-left: rem(10px);
+  line-height: $header-height;
+  color: $grey;
+  font-family: "Fira Sans";
+  text-transform: capitalize;
+}
+
+.contacts {
+  @include inline-block();
+  height: inherit;
+  position: absolute;
+  right: 0;
+  line-height: rem($header-height);
+  text-align: right;
+  cursor: pointer;
+
+  &:hover .contacts__text {
+    color: $red;
+    border-color: $red;
+  }
+  
+  &:hover .contacts__list {
+    display: block;
+  }
+}
+
+.contacts__text {
+  @include inline-block(middle);
+  font-size: rem(18px);
+  height: rem(35px);
+  line-height: rem(35px);
+  color: $blue;
+  font-family: "FiraSans-Bold";
+  font-weight: bold;
+  border-bottom: 1px dotted $blue;
+  text-transform: capitalize;
+}
+
+.contacts__list {
+  display: none;
+  position: relative;
+  left: rem(75px);
+  top: rem(-10px);
+  background-color: #fff;
+  width: rem(215px);
+  border-radius: rem(10px);
+  border: 1px solid $almost-white;
+  z-index: 1;
+  text-align: left;
+  cursor: default;
+}
+
+.contacts__list-triangle {
+  width: 0;
+  border: 10px solid transparent;
+  border-top: none;
+  border-bottom-color: $almost-white;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -10px;
+
+  &::after {
+    content: "";
+    border: 10px solid transparent;
+    border-top: none;
+    border-bottom-color: #fff;
+    position: absolute;
+    top: 2px;
+    left: -10px;
+  }
+}
+
+.contacts__elem {
+  height: rem(45px);
+  line-height: rem(45px);
+  border-bottom: 1px solid #eee;
+
+  &:last-child {
+    border: none;
+  }
+}
+
+.contacts__elem-icon {
+  @include inline-block(middle);
+  margin-left: rem(10px);
+  font-size: rem(15px);
+  color: $blue;
+}
+
+.contacts__elem-text {
+  @include inline-block(middle);
+  margin-left: rem(10px);
+  font-size: rem(13px);
+  color: $grey;
+  font-family: "Fira Sans";
+}

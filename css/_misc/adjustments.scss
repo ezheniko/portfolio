@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-decoration: unset;
+  list-style: none;
+  outline: none;
+  font-size: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  font-size: $html-font-size;
+}
+
+body {
+  font-size: 0;
+  background-color: #f5f5f5;
+}
+
+.wrapper {
+  min-height: 100%;
+
+  &::after {
+    content: "";
+    display: block;
+    height: rem($footer-height);
+  }
+}
+
+.footer {
+  height: rem($footer-height);
+  margin-top: rem(-$footer-height);
+}
+
+.container {
+  width: $container-width;
+  margin: 0 auto;
+  position: relative;
+}
+
+.content {
+  margin: 25px 0;
+}

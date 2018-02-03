@@ -1,0 +1,29 @@
+//fonts
+@import "./_misc/fonts";
+
+//global variables
+$html-font-size: 16px;
+$container-width: 940px;
+$footer-height: 50px;
+$header-height: 80px;
+
+//colors
+$blue: rgb(50,195,229);
+$red: #e75f61;
+$grey: rgb(65,65,65);
+$light-grey: rgb(156,156,156);
+$almost-white: #ddd;
+
+//layout
+@import "./_misc/mixins";
+@import "./_misc/adjustments";
+
+//sections
+@import "./sections/enter";
+@import "./sections/header";
+@import "./sections/aside";
+@import "./sections/content";
+@import "./sections/about";
+@import "./sections/career";
+@import "./sections/portfolio";
+@import "./sections/footer";

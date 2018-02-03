@@ -1,0 +1,49 @@
+$link-size: rem(30px);
+
+.footer {
+  background-color: $grey;
+}
+
+.copyright {
+  @include inline-block();
+}
+
+.copyright__text {
+  font-size: rem(14px);
+  line-height: rem($footer-height);
+  color: $light-grey;
+  font-family: "FiraSans-Light";
+}
+
+.socials {
+  @include inline-block();
+  position: absolute;
+  right: 0;
+}
+
+.social__element {
+  @include inline-block();
+  margin-left: rem(10px);
+  line-height: rem($footer-height);
+}
+
+.social__link {
+  @include inline-block(middle);
+  @include round($link-size);
+  text-align: center;
+}
+
+.social__icon {
+  font-size: $link-size;
+  color: $light-grey;
+}
+
+.fb:hover {
+  color: #4363a6;
+}
+.tw:hover {
+  color: #6ac3d9;
+}
+.git:hover {
+  color: #fff;
+}
