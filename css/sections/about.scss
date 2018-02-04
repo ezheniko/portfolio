@@ -1,29 +1,53 @@
 .user-img {
   @include inline-block();
-  width: rem(340px);
+  width: 47%;
+
+  @include phone {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
 }
 
 .user-img__photo {
   display: block;
-  @include round(rem(220px));
+  width: 68%;
+  border-radius: 50%;
   background-color: #f5f5f5;
   border: 5px solid #fff;
   margin: 0 auto;
+  box-sizing: border-box;
+
+  @include phone {
+    width: 100%;
+  }
 }
 
 .user-about {
   @include inline-block();
-  width: rem(380px);
+  width: 53%;
+
+  @include phone {
+    width: 100%;
+  }
 }
 
 .user-about__text {
   margin-top: rem(25px);
   height: rem(300px);
-  font-size: rem(18px);
-  line-height: rem(26px);
-  color: rgb(100,100,100);
-  font-family: "Fira Sans";
   overflow: auto;
+
+  p {
+    font-size: rem(18px);
+    line-height: rem(26px);
+    color: rgb(100,100,100);
+    font-family: "Fira Sans";
+    margin-bottom: 10px;
+  }
+
+  @include phone {
+    height: auto;
+  }
 }
 
 .user-about__download-link {
@@ -36,8 +60,7 @@
   font-size: rem(14px);
   line-height: rem(40px);
   color: $red;
-  font-family: "Open Sans";
-  font-weight: bold;
+  font-family: "open_sanssemibold";
   text-align: center;
   cursor: pointer;
 
@@ -50,4 +73,8 @@
 .download {
   text-align: right;
   margin-top: rem(25px);
+
+  @include phone {
+    text-align: center;
+  }
 }

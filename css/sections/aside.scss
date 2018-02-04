@@ -4,16 +4,45 @@ $font-size: 18px;
 .sidebar {
   @include inline-block();
   width: rem(220px);
+  width: 23%;
+
+  @include tablet {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+.navigation__list {
+  @include tablet {
+    margin: 0 auto;
+    text-align: justify;
+    width: 66%;
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+  }
+
+  @include phone {
+    width: 100%;
+  }
 }
 
 .navigation__elem {
   margin-left: rem(-500px);
   transition: 1s;
+
+  @include tablet {
+    @include inline-block();
+  }
 }
 .navigation__link {
   display: block;
   height: rem($element-hight);
-  width: rem(220px);
   font-size: rem($font-size);
   font-family: "Fira Sans";
   line-height: rem($element-hight);
@@ -27,11 +56,18 @@ $font-size: 18px;
   &:hover {
     color: $blue;
   }
+
+  @include tablet {
+    display: inline;
+    border-right: none;
+    padding-right: 0;
+    border-bottom: 1px solid transparent;
+  }
 }
 
 .navigation__link_active {
   color: $blue;
-  border-right-color: $blue;
+  border-color: $blue;
 }
 
 .navigation__icon {

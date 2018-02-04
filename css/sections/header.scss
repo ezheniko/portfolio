@@ -24,7 +24,7 @@
 .user-name__name_logo {
   font-size: rem(18px);
   margin-left: rem(10px);
-  line-height: $header-height;
+  line-height: rem($header-height);
   color: $grey;
   font-family: "Fira Sans";
   text-transform: capitalize;
@@ -59,13 +59,33 @@
   font-weight: bold;
   border-bottom: 1px dotted $blue;
   text-transform: capitalize;
+
+  @include phone {
+    display: none;
+  }
+}
+
+.contacts__icon {
+  display: none;
+  font-size: rem(28px);
+  height: rem(35px);
+  line-height: rem(35px);
+  color: $blue;
+
+  &:hover {
+    color: $red;
+  }
+
+  @include phone {
+    @include inline-block(middle);
+  }
 }
 
 .contacts__list {
   display: none;
-  position: relative;
-  left: rem(75px);
-  top: rem(-10px);
+  position: absolute;
+  right: rem(-72px);
+  top: 100%;
   background-color: #fff;
   width: rem(215px);
   border-radius: rem(10px);
@@ -73,6 +93,8 @@
   z-index: 1;
   text-align: left;
   cursor: default;
+
+  @include laptop { right: 0; }
 }
 
 .contacts__list-triangle {
@@ -82,8 +104,8 @@
   border-bottom-color: $almost-white;
   position: absolute;
   bottom: 100%;
-  left: 50%;
-  margin-left: -10px;
+  right: 50%;
+  margin-right: -10px;
 
   &::after {
     content: "";
@@ -94,6 +116,9 @@
     top: 2px;
     left: -10px;
   }
+
+  @include laptop { right: rem(36px); }
+  @include phone { right: rem(20px); }
 }
 
 .contacts__elem {

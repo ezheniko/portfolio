@@ -1,23 +1,38 @@
 .career-image {
   @include inline-block();
-  width: rem(220px);
-  height: rem(220px);
-  border-radius: rem(9px);
-  background-color: rgb(90,90,90);
-  background-image: url("../images/pravda.jpg");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  width: 33%;
   margin-left: rem(20px);
+
+  @include phone {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+}
+
+.career-image__pic {
+  width: 100%;
+  border-radius: rem(9px);
+
+  @include phone {
+    display: block;
+    width: 73%;
+    margin: 0 auto;
+  }
 }
 
 .career-path {
   @include inline-block();
-  width: rem(380px);
+  width: 53%;
+
+  @include phone {
+    display: block;
+    width: 100%;
+  }
 }
 
 .career-path__element {
-  width: rem(380px);
   border-radius: rem(10px);
   box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
   background-color: #fff;

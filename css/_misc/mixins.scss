@@ -1,3 +1,22 @@
+//adaptive breakpoints
+@mixin laptop {
+  @media screen and (max-width: 960px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+
 //responsive
 @function rem($px) {
   @return $px / $html-font-size + 0rem;

@@ -1,6 +1,11 @@
 .main-content {
   @include inline-block();
-  width: rem(720px);
+  width: 77%;
+
+  @include tablet {
+    display: block;
+    width: auto;
+  }
 }
 
 .content__header {
@@ -9,11 +14,19 @@
   line-height: rem(45px);
   color: $grey;
   font-family: "Fira Sans";
+
+  @include phone {
+    text-align: center;
+  }
 }
 
 .content__header_margin {
-  margin-left: 20px;
-  margin-bottom: 20px;
+  margin-left: rem(20px);
+  margin-bottom: rem(20px);
+
+  @include phone {
+    margin-left: 0;
+  }
 }
 
 .content-info {

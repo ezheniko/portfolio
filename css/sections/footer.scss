@@ -6,6 +6,11 @@ $link-size: rem(30px);
 
 .copyright {
   @include inline-block();
+
+  @include phone {
+    display: block;
+    text-align: center;
+  }
 }
 
 .copyright__text {
@@ -19,6 +24,12 @@ $link-size: rem(30px);
   @include inline-block();
   position: absolute;
   right: 0;
+  
+  @include phone {
+    display: block;
+    position: relative;
+    text-align: center;
+  }
 }
 
 .social__element {
