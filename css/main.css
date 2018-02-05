@@ -430,7 +430,8 @@ body {
 }
 
 .navigation__elem {
-  margin-left: -31.25rem;
+  position: relative;
+  right: 700px;
   transition: 1s;
 }
 @media screen and (max-width: 768px) {

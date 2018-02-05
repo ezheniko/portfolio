@@ -33,8 +33,9 @@ $font-size: 18px;
 }
 
 .navigation__elem {
-  margin-left: rem(-500px);
-  transition: 1s;
+  position: relative;
+  right: 2000px;
+  // transition: 1s;
 
   @include tablet {
     @include inline-block();
