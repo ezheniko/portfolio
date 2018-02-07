@@ -3,7 +3,7 @@
 }
 
 .portfolio-tile {
-  display: inline-block;
+  @include inline-block();
   width: 31.1%;
   margin-left: 2.2%;
   margin-bottom: rem(20px);
@@ -20,9 +20,9 @@
 .portfolio-tile__link {
   display: block;
   width: 100%;
-  height: rem(280px);
   background-color: #fff;
   position: relative;
+  padding-bottom: 20px;
 
   &:hover .portfolio-tile__name{
     color: $red;
@@ -41,32 +41,32 @@
   background-image: url("../images/sistar.jpg");
 }
 
-.image-ad {
-  background-image: url("../images/ad.jpg");
+.image-samsung {
+  background-image: url("../images/samsung.jpg");
 }
 
 .portfolio-tile__name {
-  position: absolute;
-  left: rem(20px);
-  bottom: rem(75px);
+  margin-top: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
   font-size: rem(21px);
   color: $blue;
   font-family: "Fira Sans";
 }
 
 .portfolio-tile__about {
-  position: absolute;
-  left: rem(20px);
-  bottom: rem(50px);
+  margin-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   font-size: rem(14px);
   color: $grey;
   font-family: "FiraSans-Light";
 }
 
 .portfolio-tile__type {
-  position: absolute;
-  left: rem(20px);
-  bottom: rem(20px);
+  margin-top: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
   font-size: rem(14px);
   color: rgb(174,174,174);
   font-family: "FiraSans-Bold";

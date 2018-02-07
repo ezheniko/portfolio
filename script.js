@@ -32,11 +32,11 @@ function showCareer(e) {
     <h2 class="content__header content__header_margin">Career path</h2>
     <div class="content-info">
       <div class="career-image">
-        <img src="${info.pop().company_name}" alt="career image" class="career-image__pic">
+        <img src="${info.images[0]}" alt="career image" class="career-image__pic">
       </div>
       <div class="career-path">
         <ul class="career-path__list">
-        ${createTextHTML(info)}
+        ${createTextHTML(info.career)}
         </ul>
       </div>
     </div>`;
@@ -69,12 +69,12 @@ function showAbout(e) {
 
     document.querySelector(".main-content").innerHTML = `
     <div class="user-img">
-      <img src="${info[0]}" alt="Yevhen Kozhevnikov" class="user-img__photo">
+      <img src="${info.images[0]}" alt="Yevhen Kozhevnikov" class="user-img__photo">
     </div>
     <div class="user-about">
       <h2 class="content__header">About me</h2>
       <div class="user-about__text">
-        ${createTextHTML(info)}
+        ${createTextHTML(info.about)}
       </div>
       <div class="download">
         <a href="./files/yevhen_kozhevnikov.pdf" class="user-about__download-link">Download CV</a>
@@ -101,6 +101,7 @@ function showPortfolio(e) {
   xhr.onreadystatechange = function(){
     if(xhr.readyState != 4) return;
     let info = JSON.parse(xhr.responseText);
+    console.log(info);
 
     document.querySelector(".main-content").innerHTML = `
     <h2 class="content__header content__header_margin">Portfolio</h2>
@@ -119,10 +120,10 @@ function showPortfolio(e) {
       text += `
       <li class="portfolio-tile">
         <a href="${item.link}" class="portfolio-tile__link">
-          <div class="portfolio-tile__image image-sistar"></div>
-          <span class="portfolio-tile__name">${item.name}</span>
-          <span class="portfolio-tile__about">${item.about}</span>
-          <span class="portfolio-tile__type">${item.type}</span>
+          <div class="portfolio-tile__image image-${item.classname}"></div>
+          <div class="portfolio-tile__name">${item.name}</div>
+          <div class="portfolio-tile__about">${item.about}</div>
+          <div class="portfolio-tile__type">${item.type}</div>
         </a>
       </li>`;
     }
