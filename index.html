@@ -6,20 +6,23 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Enter</title>
   <link rel="stylesheet" href="./css/main.css">
+  <script src="./script.js"></script>
 </head>
 <body>
-  <div class="user">
-    <div class="user-info">
-      <img src="./images/userpic.jpg" alt="User logo" class="user__pic">
-      <div class="user-name">
-        <span class="user-name__name">yevhen kozhevnikov</span>
+  <div class="enter-screen">
+    <div class="user">
+        <div class="user-info">
+          <img src="./images/userpic.jpg" alt="User logo" class="user__pic">
+          <div class="user-name">
+            <span class="user-name__name">yevhen kozhevnikov</span>
+          </div>
+        </div>
+        <div class="user-link">
+          <a href="#" class="user-link__element">Enter site</a>
+        </div>
       </div>
-    </div>
-    <div class="user-link">
-      <a href="./pages/about.html" class="user-link__element">Enter site</a>
-    </div>
   </div>
-  <div class="wrapper" hidden>
+  <div class="wrapper">
     <header class="header">
       <div class="container">
         <div class="user-logo">
@@ -54,18 +57,18 @@
         <aside class="sidebar">
           <nav class="navigation">
             <ul class="navigation__list">
-              <li class="navigation__elem"><a href="#" class="navigation__link navigation__link_active">
+              <li class="navigation__elem"><a href="#" class="navigation__link navigation__link_active" id="about">
                 <span class="icon-user-tie navigation__icon"></span>
                 <span class="navigation__link-text">
                 About me
                 <span/></a>
               </li>
-              <li class="navigation__elem"><a href="./career.html" class="navigation__link">
+              <li class="navigation__elem"><a href="#" class="navigation__link" id="career">
                 <span class="icon-rocket navigation__icon"></span>
                 <span class="navigation__link-text">
                 Career</span></a>
               </li>
-              <li class="navigation__elem"><a href="./portfolio.html" class="navigation__link">
+              <li class="navigation__elem"><a href="#" class="navigation__link" id="portfolio">
                 <span class="icon-briefcase navigation__icon"></span>
                 <span class="navigation__link-text">
                 Portfolio</span></a>
@@ -78,7 +81,7 @@
       </div>
     </div>
   </div>
-  <footer class="footer" hidden>
+  <footer class="footer">
     <div class="container">
       <div class="copyright">
         <span class="copyright__text">&copy; Дизайн сайта был разработан Jack++ &copy;</span>

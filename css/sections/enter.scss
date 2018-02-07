@@ -1,5 +1,11 @@
 $pic-wigth: rem(140px);
 
+.enter-screen {
+  @include center-center();
+  background-color: #f5f5f5;
+  z-index: 1;
+}
+
 .user {
   width: rem(300px);
   height: rem(235px);

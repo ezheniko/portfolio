@@ -156,6 +156,17 @@ body {
   margin: 1.5625rem 0;
 }
 
+.enter-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  background-color: #f5f5f5;
+  z-index: 1;
+}
+
 .user {
   width: 18.75rem;
   height: 14.6875rem;
@@ -431,8 +442,7 @@ body {
 
 .navigation__elem {
   position: relative;
-  right: 700px;
-  transition: 1s;
+  right: 2000px;
 }
 @media screen and (max-width: 768px) {
   .navigation__elem {
