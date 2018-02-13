@@ -1,0 +1,64 @@
+.comments__list {
+  padding: 10px;
+}
+
+.comments__comment {
+  padding: rem(20px);
+  padding-right: rem(70px);
+  margin-bottom: rem($margin-padding);
+
+  &:nth-child(2n) {
+    padding-left: rem(70px);
+    padding-right: 0;
+  }
+}
+
+.comments__comment-text {
+  font-size: rem(16px);
+  color: $grey;
+
+  border-bottom: 1px dashed $blue;
+}
+
+.comments__comment-info_even  {
+  text-align: right;
+}
+
+.comments__comment-time {
+  font-size: rem(16px);
+  color: $light-grey;
+  @include inline-block();
+
+}
+
+.comments__comment-autor {
+  font-size: rem(16px);
+  color: $light-grey;
+  @include inline-block();
+  margin-left: rem(10px);
+}
+
+.comments__control {
+  @include inline-block();
+  margin: 0 auto;
+  border: 2px dashed $blue;
+  background-color: #fff;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.comments__btn {
+  @include inline-block();
+  font-size: rem(18px);
+  border-bottom: 1px dashed $blue;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.comments__control_right {
+  position: absolute;
+  right: 0;
+}
+
+.comments__control_left {}

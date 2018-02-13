@@ -27,6 +27,11 @@
   vertical-align: $valign;
 }
 
+@mixin block-hor-center() {
+  margin: 0 auto;
+  display: block;
+}
+
 @mixin transition ($transition) {
   transition: $transition;
   -o-transition: $transition;
@@ -42,6 +47,22 @@
   bottom: 0;
   right: 0;
   margin: auto;
+}
+
+@mixin center-before($width) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  min-width: rem($width + 10px);
+
+  &::before {
+    content: "";
+    height: 100%;
+    @include inline-block(middle);
+  }
 }
 
 @mixin round($size) {

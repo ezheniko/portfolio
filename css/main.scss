@@ -9,6 +9,7 @@ $header-height: 80px;
 
 //colors
 $blue: rgb(50,195,229);
+$blue-opacity: rgba(50,195,229, .2);
 $red: #e75f61;
 $grey: rgb(65,65,65);
 $light-grey: rgb(156,156,156);
@@ -26,4 +27,5 @@ $almost-white: #ddd;
 @import "./sections/about";
 @import "./sections/career";
 @import "./sections/portfolio";
+@import "./sections/writeme";
 @import "./sections/footer";

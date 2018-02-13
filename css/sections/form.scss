@@ -1,0 +1,128 @@
+$margin-padding: 20px;
+
+.form {
+  position: relative;
+  margin-top: 25px;
+}
+
+.form__wrap {
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  // max-height: 0;
+  // height: 0;
+  transition: .8s;
+}
+
+.form__form {
+  background-color: $blue-opacity;
+  padding: $margin-padding;
+  position: relative;
+  top: -342px;
+  transition: .8s;
+}
+
+.form__title {
+  text-align: center;
+  font-size: rem($margin-padding);
+  color: $blue;
+  margin-bottom: rem($margin-padding);
+}
+
+.form__elem {
+  margin-bottom: $margin-padding;
+}
+
+.form__label {
+  font-size: rem(18px);
+  color: $blue;
+}
+
+.form__label_msg {
+  display: block;
+  margin-bottom: $margin-padding;
+}
+
+.form__input {
+  font-size: rem(16px);
+  color: $blue;
+  border-bottom: 1px solid $blue;
+  margin-left: $margin-padding;
+  background-color: transparent;
+  padding: 10px;
+}
+
+.form__message {
+  display: block;
+  font-size: rem(16px);
+  width: 90%;
+  height: rem(150px);
+  color: $blue;
+  background-color: rgba(255, 255, 255, .5);
+  border: 1px solid $blue;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: $margin-padding;
+}
+
+.form__submit {
+  width: rem(100px);
+  height: rem(40px);
+  border-radius: 50%;
+  font-size: 18px;
+  margin: 0 auto;
+  display: block;
+  color: $blue;
+  background-color: rgba(255, 255, 255, .5);
+  border: 1px solid $blue;
+}
+
+.form__control {
+  width: rem(150px);
+  height: rem(40px);
+  border-radius: rem(20px);
+  position: absolute;
+  top: 0;
+  margin-top: rem(-$margin-padding);
+  left: 50%;
+  margin-left: rem(-75px);
+  border: 1px solid white;
+  z-index: 1;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: $blue;
+
+  // &:hover + .form__wrap {
+  //   max-height: 342px;
+  // } 
+  
+  // &:hover + .form__wrap .form__form {
+  //   top: 0;
+  // }
+
+  // &:hover .form__control_show {
+  //   margin-top: rem(-40px);
+  // }
+}
+
+.form__control-text {
+  width: 100%;
+  height: 100%;
+  line-height: rem(40px);
+  font-size: rem(18px);
+  text-align: center;
+}
+
+.form__control-text_show {
+  background-color: #fff;
+  color: $blue;
+  transition: .5s;
+}
+
+.form__control-text_hide {
+  background-color: $blue-opacity;
+  color: #fff;
+}

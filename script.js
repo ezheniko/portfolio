@@ -1,26 +1,103 @@
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
+  if (sessionStorage.getItem('activeSection')) {
+    showContent();
+    document.getElementById("about").addEventListener("click", showAbout);
+    document.getElementById("career").addEventListener("click", showCareer);
+    document.getElementById("portfolio").addEventListener("click", showPortfolio);
+    document.getElementById("feedback").addEventListener("click", showFeedback);
+  } else {
   let startBtn = document.querySelector(".user-link__element");
   startBtn.addEventListener('click', showContent);
   document.getElementById("about").addEventListener("click", showAbout);
   document.getElementById("career").addEventListener("click", showCareer);
   document.getElementById("portfolio").addEventListener("click", showPortfolio);
+  document.getElementById("feedback").addEventListener("click", showFeedback);
+  }
 }
 
 
 function showContent(e) {
-  e.preventDefault();
+  if (e) e.preventDefault();
   navElemInitPosition();
   document.querySelector(".enter-screen").remove();
   document.querySelector(".wrapper").hidden = false;
   document.querySelector(".footer").hidden = false;
   menuAnimation();
-  showAbout();
+  switch (sessionStorage.getItem('activeSection')) {
+    case 'career':
+      showCareer();
+      break;
+    case 'portfolio':
+      showPortfolio();
+      break;
+    case 'feedback':
+      showFeedback();
+      break;
+    default:
+      showAbout();
+      break;
+  }
+  // showAbout();
+}
+
+function showFeedback(e) {
+  history.pushState(null, "New title", "/writeme");
+  if(e) {toggleClass(e);}
+  let xhr = new XMLHttpRequest();
+  xhr.open('GET', `php/server.php?section=about`, true);
+
+  xhr.onreadystatechange = function(){
+    if(xhr.readyState != 4) return;
+    let info = JSON.parse(xhr.responseText);
+
+    document.querySelector(".main-content").innerHTML = `
+    <div class="form">
+      <div class="form__control">
+        <div class="form__control-text form__control-text_show">write comment</div>
+        <div class="form__control-text form__control-text_hide">hide form</div>
+      </div>
+      <div class="form__wrap" style="max-height: 0;">
+        <form class="form__form">
+          <h2 class="form__title">Form for you write on a wall</h2>
+          <div class="form__elem">
+            <label for="name" class="form__label">Your name:</label>
+            <input class="form__input" type="text" id="name" name="name" placeholder="What is your name, bro?">
+          </div>
+          <label class="form__label form__label_msg" for="message">Write here something, I'll apreciate if you'll be polite and friendly!</label>
+          <textarea class="form__message" name="message" id="message" required></textarea>
+          <input type="submit" value="Send" class="form__submit">
+        </form>
+      </div>
+    </div>
+    <div class="comments__wall">
+      <ul class="comments__list">
+      </ul>
+      <div class="comments__control comments__control_right">
+        <button class="comments__btn comments__btn_prev">Previous comments</button>
+      </div>
+      <div class="comments__control comments__control_left">
+        <button class="comments__btn comments__btn_next">Next comments</button>
+      </div>
+    </div>`;
+    let formControl = document.querySelector(".form__control");
+    formControl.addEventListener('click', showHide);
+    document.querySelector('.form__form').addEventListener('submit', sendComment);
+    showComments.current = 0;
+    showComments(10);
+    document.querySelector('.comments__btn_prev').addEventListener('click', () => {showComments(10);} );
+    document.querySelector('.comments__btn_next').addEventListener('click', () => {showComments(-10);} );
+  }
+
+  xhr.send(null);
+
+  sessionStorage.setItem('activeSection', 'feedback');
 }
 
 function showCareer(e) {
-  toggleClass(e);
+  history.pushState(null, "New title", "/career");
+  if(e) {toggleClass(e);}
   let xhr = new XMLHttpRequest();
   xhr.open('GET', `php/server.php?section=career`, true);
 
@@ -56,9 +133,11 @@ function showCareer(e) {
     }
     return text;
   }
+  sessionStorage.setItem('activeSection', 'career');
 }
 
 function showAbout(e) {
+  history.pushState(null, "New title", "/about");
   if(e) {toggleClass(e);}
   let xhr = new XMLHttpRequest();
   xhr.open('GET', `php/server.php?section=about`, true);
@@ -77,9 +156,10 @@ function showAbout(e) {
         ${createTextHTML(info.about)}
       </div>
       <div class="download">
-        <a href="./files/yevhen_kozhevnikov.pdf" class="user-about__download-link">Download CV</a>
+        <a href="./files/yevhen_kozhevnikov.pdf" class="user-about__download-link" target="_blank">Download CV</a>
       </div>
     </div>`;
+    //document.querySelector(".user-about__download-link").addEventListener('click', download);
   }
 
   xhr.send(null);
@@ -91,17 +171,19 @@ function showAbout(e) {
     }
     return text;
   }
+  sessionStorage.setItem('activeSection', 'about');
 }
 
 function showPortfolio(e) {
-  toggleClass(e);
+  history.pushState(null, "New title", "/portfolio");
+  if(e) {toggleClass(e);}
+  // toggleClass(e);
   let xhr = new XMLHttpRequest();
   xhr.open('GET', `php/server.php?section=portfolio`, true);
 
   xhr.onreadystatechange = function(){
     if(xhr.readyState != 4) return;
     let info = JSON.parse(xhr.responseText);
-    console.log(info);
 
     document.querySelector(".main-content").innerHTML = `
     <h2 class="content__header content__header_margin">Portfolio</h2>
@@ -129,8 +211,8 @@ function showPortfolio(e) {
     }
     return text;
   }
+  sessionStorage.setItem('activeSection', 'portfolio');
 }
-
 
 function toggleClass(event) {
   let activeLink = document.querySelector(".navigation__link_active");
@@ -166,5 +248,121 @@ function menuAnimation() {
         navigationElements[i].style.right = 0;
       }, 1 * num);
     }
+  }
+}
+
+function download(e) {
+  e.preventDefault(e);
+  let xhr = new XMLHttpRequest();
+  xhr.open('GET', `php/download.php?file=yevhen_kozhevnikov.pdf`, true);
+
+  xhr.onreadystatechange = function(){
+    if(xhr.readyState != 4) return;
+  }
+
+  xhr.send(null);
+}
+
+function showHide() {
+  let htmlFS = parseInt(getComputedStyle(document.documentElement).fontSize);
+  let wrap = this.nextElementSibling;
+  let form = document.querySelector(".form__form");
+  let formHeight = form.offsetHeight;
+  
+  if (showHide.state) {
+    showHide.state = !showHide.state;
+    wrap.style.maxHeight = `${formHeight / htmlFS}rem`;
+    // wrap.style.maxHeight = 0;
+    form.style.top = `-${formHeight / htmlFS}rem`;
+    wrap.style.maxHeight = 0;
+    this.firstElementChild.style.marginTop = 0;
+  } else {
+    showHide.state = !showHide.state;
+    wrap.style.maxHeight = `${formHeight / htmlFS}rem`;
+    setTimeout( () => {wrap.removeAttribute("style");}, 800);
+    // wrap.removeAttribute("style");
+    form.style.top = 0;
+    this.firstElementChild.style.marginTop = `-${parseInt(getComputedStyle(this).height) / htmlFS}rem`;
+  }
+}
+showHide.state = false;
+
+function sendComment(e) {
+  e.preventDefault();
+  let xhr = new XMLHttpRequest();
+  xhr.open('POST', 'php/message.php', true);
+  xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState != 4) return;
+    if (xhr.responseText === 'false') console.log("Something goes wrong");
+  }
+
+  let data = JSON.stringify({
+    time: Date.now(),
+    autor: this.name.value || 'anonymus',
+    text: this.message.value
+  });
+  
+  xhr.send(data);
+}
+
+function showComments(commentsNum) {
+  let xhr = new XMLHttpRequest();
+  xhr.open('POST', 'php/comments.php', true);
+  xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+
+  let data = JSON.stringify({
+    amount: commentsNum,
+    startPosition: showComments.current
+  });
+  
+  showComments.current += commentsNum;
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState != 4) return;
+    
+    let data = JSON.parse(xhr.responseText);
+    showComments.amount = data.amount[0];
+    
+    
+    if (showComments.amount <= showComments.current) {
+      document.querySelector('.comments__btn_prev').disabled = true;
+    } else {
+      document.querySelector('.comments__btn_prev').disabled = false;
+    }
+    if (showComments.current <= 10) {
+      document.querySelector('.comments__btn_next').disabled = true;
+    } else {
+      document.querySelector('.comments__btn_next').disabled = false;
+    }
+    let comments = data.data;
+    let commentsHTMLText = '';
+    for (let comment of comments) {
+      let date = new Date(+comment.time);
+      let month = date.getMonth() + 1;
+      let dateStr = `${fixDate(date.getHours())}:${fixDate(date.getMinutes())}:${fixDate(date.getSeconds())} ${fixDate(date.getDate())}-${fixDate(date.getMonth() + 1)}-${date.getFullYear()}`;
+      commentsHTMLText += `
+      <li class="comments__comment">
+        <div class="comments__comment-text">${comment.text}</div>
+        <div class="comments__comment-info comments__comment-info_even">
+          <div class="comments__comment-time">${dateStr}</div>
+          <div class="comments__comment-autor">${comment.autor}</div>
+        </div>
+      </li>`
+    }
+    document.querySelector('.comments__list').innerHTML = commentsHTMLText;
+  }
+
+  xhr.send(data);
+}
+showComments.current = 0;
+showComments.amount = 0;
+
+function fixDate(datePart) {
+  if (datePart < 10) {
+    return `0${datePart}`;
+  } else {
+    return datePart;
   }
 }
