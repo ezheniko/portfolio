@@ -8,12 +8,12 @@ function init() {
     document.getElementById("portfolio").addEventListener("click", showPortfolio);
     document.getElementById("feedback").addEventListener("click", showFeedback);
   } else {
-  let startBtn = document.querySelector(".user-link__element");
-  startBtn.addEventListener('click', showContent);
-  document.getElementById("about").addEventListener("click", showAbout);
-  document.getElementById("career").addEventListener("click", showCareer);
-  document.getElementById("portfolio").addEventListener("click", showPortfolio);
-  document.getElementById("feedback").addEventListener("click", showFeedback);
+    let startBtn = document.querySelector(".user-link__element");
+    startBtn.addEventListener('click', showContent);
+    document.getElementById("about").addEventListener("click", showAbout);
+    document.getElementById("career").addEventListener("click", showCareer);
+    document.getElementById("portfolio").addEventListener("click", showPortfolio);
+    document.getElementById("feedback").addEventListener("click", showFeedback);
   }
 }
 
@@ -39,7 +39,6 @@ function showContent(e) {
       showAbout();
       break;
   }
-  // showAbout();
 }
 
 function showFeedback(e) {
@@ -148,7 +147,9 @@ function showAbout(e) {
 
     document.querySelector(".main-content").innerHTML = `
     <div class="user-img">
-      <img src="${info.images[0]}" alt="Yevhen Kozhevnikov" class="user-img__photo">
+      <div class="user-img__wrap">
+        ${createImagesHTML(info.images)}
+      </div>
     </div>
     <div class="user-about">
       <h2 class="content__header">About me</h2>
@@ -159,10 +160,33 @@ function showAbout(e) {
         <a href="./files/yevhen_kozhevnikov.pdf" class="user-about__download-link" target="_blank">Download CV</a>
       </div>
     </div>`;
+
+    let image = document.querySelectorAll('.user-img__photo');
+    let currentImage = 0;
+    let timer_id = setInterval(function() {
+      image[currentImage++].style.opacity = 0;
+      if (currentImage >= image.length) currentImage = 0;
+      image[currentImage].style.opacity = '1';
+      console.log(currentImage);
+    }, 3000);
+    // let timer_id = setInterval(function() {
+      // image.src = `./images/about/small/${info.images[currentImage++]}`;
+      // if (currentImage >= info.images.length) currentImage = 0;
+      // console.log(currentImage);
+    // }, 3000);
+
     //document.querySelector(".user-about__download-link").addEventListener('click', download);
   }
 
   xhr.send(null);
+
+  function createImagesHTML(images) {
+    let text = '';
+    for (let img of images) {
+      text += `<img src="./images/about/small/${img}" alt="Yevhen Kozhevnikov" class="user-img__photo">`;
+    }
+      return text;
+  }
 
   function createTextHTML(info) {
     let text = '';
@@ -202,7 +226,7 @@ function showPortfolio(e) {
       text += `
       <li class="portfolio-tile">
         <a href="${item.link}" class="portfolio-tile__link">
-          <div class="portfolio-tile__image image-${item.classname}"></div>
+          <div class="portfolio-tile__image" style="background-image: url('../images/portfolio/${item.src}');"></div>
           <div class="portfolio-tile__name">${item.name}</div>
           <div class="portfolio-tile__about">${item.about}</div>
           <div class="portfolio-tile__type">${item.type}</div>
