@@ -3,17 +3,11 @@ document.addEventListener("DOMContentLoaded", init);
 function init() {
   if (sessionStorage.getItem('activeSection')) {
     showContent();
-    document.getElementById("about").addEventListener("click", showAbout);
-    document.getElementById("career").addEventListener("click", showCareer);
-    document.getElementById("portfolio").addEventListener("click", showPortfolio);
-    document.getElementById("feedback").addEventListener("click", showFeedback);
+    document.querySelector('.navigation__list').addEventListener('click', changeContent);
   } else {
     let startBtn = document.querySelector(".user-link__element");
     startBtn.addEventListener('click', showContent);
-    document.getElementById("about").addEventListener("click", showAbout);
-    document.getElementById("career").addEventListener("click", showCareer);
-    document.getElementById("portfolio").addEventListener("click", showPortfolio);
-    document.getElementById("feedback").addEventListener("click", showFeedback);
+    document.querySelector('.navigation__list').addEventListener('click', changeContent);
   }
 }
 
@@ -41,9 +35,31 @@ function showContent(e) {
   }
 }
 
+function changeContent(e) {
+  let target = e.target;
+  let elem = target.closest('.navigation__link');
+  if (!elem || elem.classList.contains('navigation__link_active')) return;
+
+  toggleClass(elem);
+  switch (elem.dataset.name) {
+    case "about":
+      showAbout(e);
+      break;
+    case "career":
+      showCareer(e);
+      break;
+    case "portfolio":
+      showPortfolio(e);
+      break;
+    case "feedback":
+      showFeedback(e);
+      break;
+  }
+}
+
 function showFeedback(e) {
   history.pushState(null, "New title", "/writeme");
-  if(e) {toggleClass(e);}
+
   let xhr = new XMLHttpRequest();
   xhr.open('GET', `php/server.php?section=about`, true);
 
@@ -96,7 +112,7 @@ function showFeedback(e) {
 
 function showCareer(e) {
   history.pushState(null, "New title", "/career");
-  if(e) {toggleClass(e);}
+
   let xhr = new XMLHttpRequest();
   xhr.open('GET', `php/server.php?section=career`, true);
 
@@ -116,21 +132,41 @@ function showCareer(e) {
       </div>
     </div>`;
 
+    document.querySelector('.career-path__element').classList.add('career-path__element_active');
+
     createImagesHTML('company', info.images['company']);
+
+    let image = document.getElementsByClassName('career-image__pic');
+    let currentImage = 0;
+    let timer_id = setInterval(function() {
+      if (image.length == 0) {
+        clearInterval(timer_id);
+        return;
+      };
+
+      image[currentImage].style.opacity = 0;
+      image[currentImage++].style.position = 'absolute';
+      if (currentImage >= image.length) currentImage = 0;
+      image[currentImage].style.opacity = '1';
+      image[currentImage].style.position = 'static';
+    }, 3000);
 
     document.querySelector('.career-path__list').addEventListener('click', function(event) {
       let target = event.target;
       let elem = target.closest('.career-path__element');
-      if (!elem) return;
+      if (!elem || elem.classList.contains('career-path__element_active')) return;
+      
+      this.querySelector('.career-path__element_active').classList.remove('career-path__element_active');
+      elem.classList.toggle('career-path__element_active');
 
       createImagesHTML(elem.dataset.name, info.images[elem.dataset.name]);
+      currentImage = 0;
     });
   }
 
   xhr.send(null);
 
   function createImagesHTML(section, images) {
-    console.log(`${section} --- ${images}`);
     let text = '';
     for (let img of images) {
       text += `<img src="./images/career/${section}/${img}" alt="career image" class="career-image__pic">`;
@@ -155,7 +191,7 @@ function showCareer(e) {
 
 function showAbout(e) {
   history.pushState(null, "New title", "/about");
-  if(e) {toggleClass(e);}
+
   let xhr = new XMLHttpRequest();
   xhr.open('GET', `php/server.php?section=about`, true);
 
@@ -179,13 +215,17 @@ function showAbout(e) {
       </div>
     </div>`;
 
-    let image = document.querySelectorAll('.user-img__photo');
+    
+    let image = document.getElementsByClassName('user-img__photo');
     let currentImage = 0;
     let timer_id = setInterval(function() {
+      if (image.length == 0) {
+        clearInterval(timer_id);
+        return;
+      };
       image[currentImage++].style.opacity = 0;
       if (currentImage >= image.length) currentImage = 0;
       image[currentImage].style.opacity = '1';
-      console.log(currentImage);
     }, 3000);
   }
 
@@ -211,8 +251,7 @@ function showAbout(e) {
 
 function showPortfolio(e) {
   history.pushState(null, "New title", "/portfolio");
-  if(e) {toggleClass(e);}
-  // toggleClass(e);
+
   let xhr = new XMLHttpRequest();
   xhr.open('GET', `php/server.php?section=portfolio`, true);
 
@@ -249,10 +288,10 @@ function showPortfolio(e) {
   sessionStorage.setItem('activeSection', 'portfolio');
 }
 
-function toggleClass(event) {
+function toggleClass(elem) {
   let activeLink = document.querySelector(".navigation__link_active");
   if (activeLink) activeLink.classList.remove("navigation__link_active");
-  event.currentTarget.classList.add("navigation__link_active");
+  elem.classList.add("navigation__link_active");
 }
 
 function navElemInitPosition() {
