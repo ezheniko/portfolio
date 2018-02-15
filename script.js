@@ -108,7 +108,6 @@ function showCareer(e) {
     <h2 class="content__header content__header_margin">Career path</h2>
     <div class="content-info">
       <div class="career-image">
-        <img src="${info.images[0]}" alt="career image" class="career-image__pic">
       </div>
       <div class="career-path">
         <ul class="career-path__list">
@@ -116,15 +115,34 @@ function showCareer(e) {
         </ul>
       </div>
     </div>`;
+
+    createImagesHTML('company', info.images['company']);
+
+    document.querySelector('.career-path__list').addEventListener('click', function(event) {
+      let target = event.target;
+      let elem = target.closest('.career-path__element');
+      if (!elem) return;
+
+      createImagesHTML(elem.dataset.name, info.images[elem.dataset.name]);
+    });
   }
 
   xhr.send(null);
+
+  function createImagesHTML(section, images) {
+    console.log(`${section} --- ${images}`);
+    let text = '';
+    for (let img of images) {
+      text += `<img src="./images/career/${section}/${img}" alt="career image" class="career-image__pic">`;
+    }
+    document.querySelector('.career-image').innerHTML = text;
+  }
 
   function createTextHTML(info) {
     let text = '';
     for (let item of info) {
       text += `
-      <li class="career-path__element">
+      <li class="career-path__element" data-name="${item.dataset}">
         <div class="career-path__company-name">${item.company_name}</div>
         <div class="career-path__post">${item.position}</div>
         <div class="career-path__time">${item.time}</div>
@@ -169,13 +187,6 @@ function showAbout(e) {
       image[currentImage].style.opacity = '1';
       console.log(currentImage);
     }, 3000);
-    // let timer_id = setInterval(function() {
-      // image.src = `./images/about/small/${info.images[currentImage++]}`;
-      // if (currentImage >= info.images.length) currentImage = 0;
-      // console.log(currentImage);
-    // }, 3000);
-
-    //document.querySelector(".user-about__download-link").addEventListener('click', download);
   }
 
   xhr.send(null);

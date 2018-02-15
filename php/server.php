@@ -28,13 +28,27 @@ switch ($_GET["section"]) {
   case "career":
 
     $data = [
-      'images' => [],
+      'images' => [
+        'army' => [],
+        'company' => [],
+        'pmr' => [],
+        'artel' => [],
+        'bighome' => [],
+      ],
       'career' => [],
     ];
-    $sth = $dbh->query("SELECT src FROM images WHERE section=\"career\"");
-    $data['images'] = $sth->fetchAll(PDO::FETCH_COLUMN, 0);
+    $sth = $dbh->query("SELECT src FROM images WHERE subsection=\"artel\"");
+    $data['images']['artel'] = $sth->fetchAll(PDO::FETCH_COLUMN, 0);
+    $sth = $dbh->query("SELECT src FROM images WHERE subsection=\"army\"");
+    $data['images']['army'] = $sth->fetchAll(PDO::FETCH_COLUMN, 0);
+    $sth = $dbh->query("SELECT src FROM images WHERE subsection=\"pmr\"");
+    $data['images']['pmr'] = $sth->fetchAll(PDO::FETCH_COLUMN, 0);
+    $sth = $dbh->query("SELECT src FROM images WHERE subsection=\"bighome\"");
+    $data['images']['bighome'] = $sth->fetchAll(PDO::FETCH_COLUMN, 0);
+    $sth = $dbh->query("SELECT src FROM images WHERE subsection=\"company\"");
+    $data['images']['company'] = $sth->fetchAll(PDO::FETCH_COLUMN, 0);
 
-    $sth = $dbh->query("SELECT company_name, position, time FROM career");
+    $sth = $dbh->query("SELECT company_name, position, time, dataset FROM career");
     $data['career'] = $sth->fetchAll(PDO::FETCH_ASSOC);
 
     $sth = null;
