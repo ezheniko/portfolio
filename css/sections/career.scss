@@ -10,6 +10,7 @@
     width: 100%;
     margin-left: 0;
     margin-bottom: 20px;
+    height: rem(300px);
   }
 }
 
@@ -29,7 +30,8 @@
 
   @include phone {
     display: block;
-    width: 73%;
+    width: auto;
+    height: 100%;
     margin: 0 auto;
     top: -1000px;
   }

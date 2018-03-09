@@ -6,7 +6,8 @@ define('DB_PASSWORD', "111");
 $db_name = "portfolio";
 $dbh = new PDO("mysql:host=$host;dbname=$db_name", DB_LOGIN, DB_PASSWORD);
 
-switch ($_GET["section"]) {
+$section = $_GET['section'] ?? '';
+switch ($section) {
 
   case "about":
 

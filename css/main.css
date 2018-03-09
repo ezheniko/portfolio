@@ -605,8 +605,6 @@ body {
 
 .user-about__text {
   margin-top: 1.5625rem;
-  height: 18.75rem;
-  overflow: auto;
 }
 .user-about__text p {
   font-size: 1.125rem;
@@ -664,6 +662,7 @@ body {
     width: 100%;
     margin-left: 0;
     margin-bottom: 20px;
+    height: 18.75rem;
   }
 }
 
@@ -683,7 +682,8 @@ body {
 @media screen and (max-width: 480px) {
   .career-image__pic {
     display: block;
-    width: 73%;
+    width: auto;
+    height: 100%;
     margin: 0 auto;
     top: -1000px;
   }
@@ -1001,6 +1001,10 @@ body {
 .comments__control_right {
   position: absolute;
   right: 0;
+}
+
+.comments__own {
+  border: 1px dashed #414141;
 }
 
 .footer {

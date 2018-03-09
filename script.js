@@ -1,11 +1,11 @@
-document.addEventListener("DOMContentLoaded", init);
+document.addEventListener('DOMContentLoaded', init);
 
 function init() {
   if (sessionStorage.getItem('activeSection')) {
     showContent();
     document.querySelector('.navigation__list').addEventListener('click', changeContent);
   } else {
-    let startBtn = document.querySelector(".user-link__element");
+    const startBtn = document.querySelector('.user-link__element');
     startBtn.addEventListener('click', showContent);
     document.querySelector('.navigation__list').addEventListener('click', changeContent);
   }
@@ -15,9 +15,9 @@ function init() {
 function showContent(e) {
   if (e) e.preventDefault();
   navElemInitPosition();
-  document.querySelector(".enter-screen").remove();
-  document.querySelector(".wrapper").hidden = false;
-  document.querySelector(".footer").hidden = false;
+  document.querySelector('.enter-screen').remove();
+  document.querySelector('.wrapper').hidden = false;
+  document.querySelector('.footer').hidden = false;
   menuAnimation();
   switch (sessionStorage.getItem('activeSection')) {
     case 'career':
@@ -36,91 +36,95 @@ function showContent(e) {
 }
 
 function changeContent(e) {
-  let target = e.target;
-  let elem = target.closest('.navigation__link');
+  const target = e.target;
+  const elem = target.closest('.navigation__link');
   if (!elem || elem.classList.contains('navigation__link_active')) return;
 
   toggleClass(elem);
   switch (elem.dataset.name) {
-    case "about":
+    case 'about':
       showAbout(e);
       break;
-    case "career":
+    case 'career':
       showCareer(e);
       break;
-    case "portfolio":
+    case 'portfolio':
       showPortfolio(e);
       break;
-    case "feedback":
+    case 'feedback':
       showFeedback(e);
+      break;
+    default:
       break;
   }
 }
 
-function showFeedback(e) {
-  history.pushState(null, "New title", "/writeme");
+function showFeedback() {
+  // history.pushState(null, 'New title', '/writeme');
 
-  let xhr = new XMLHttpRequest();
-  xhr.open('GET', `php/server.php?section=about`, true);
+  // const xhr = new XMLHttpRequest();
+  // xhr.open('GET', 'php/server.php?section=about', true);
 
-  xhr.onreadystatechange = function(){
-    if(xhr.readyState != 4) return;
-    let info = JSON.parse(xhr.responseText);
+  // xhr.onreadystatechange = function () {
+  //   if(xhr.readyState != 4) return;
+  //   let info = JSON.parse(xhr.responseText);
 
-    document.querySelector(".main-content").innerHTML = `
-    <div class="form">
-      <div class="form__control">
-        <div class="form__control-text form__control-text_show">write comment</div>
-        <div class="form__control-text form__control-text_hide">hide form</div>
-      </div>
-      <div class="form__wrap" style="max-height: 0;">
-        <form class="form__form">
-          <h2 class="form__title">Form for you write on a wall</h2>
-          <div class="form__elem">
-            <label for="name" class="form__label">Your name:</label>
-            <input class="form__input" type="text" id="name" name="name" placeholder="What is your name, bro?">
-          </div>
-          <label class="form__label form__label_msg" for="message">Write here something, I'll apreciate if you'll be polite and friendly!</label>
-          <textarea class="form__message" name="message" id="message" required></textarea>
-          <input type="submit" value="Send" class="form__submit">
-        </form>
-      </div>
+  document.querySelector('.main-content').innerHTML = `
+  <div class="form">
+    <div class="form__control">
+      <div class="form__control-text form__control-text_show">write comment</div>
+      <div class="form__control-text form__control-text_hide">hide form</div>
     </div>
-    <div class="comments__wall">
-      <ul class="comments__list">
-      </ul>
-      <div class="comments__control comments__control_right">
-        <button class="comments__btn comments__btn_prev">Previous comments</button>
-      </div>
-      <div class="comments__control comments__control_left">
-        <button class="comments__btn comments__btn_next">Next comments</button>
-      </div>
-    </div>`;
-    let formControl = document.querySelector(".form__control");
-    formControl.addEventListener('click', showHide);
-    document.querySelector('.form__form').addEventListener('submit', sendComment);
-    showComments.current = 0;
-    showComments(10);
-    document.querySelector('.comments__btn_prev').addEventListener('click', () => {showComments(10);} );
-    document.querySelector('.comments__btn_next').addEventListener('click', () => {showComments(-10);} );
-  }
-
-  xhr.send(null);
+    <div class="form__wrap" style="max-height: 0;">
+      <form class="form__form">
+        <h2 class="form__title">Form for you write on a wall</h2>
+        <div class="form__elem">
+          <label for="name" class="form__label">Your name:</label>
+          <input class="form__input" type="text" id="name" name="name" placeholder="What is your name, bro?">
+        </div>
+        <label class="form__label form__label_msg" for="message">Write here something, I'll apreciate if you'll be polite and friendly!</label>
+        <textarea class="form__message" name="message" id="message" required></textarea>
+        <input type="submit" value="Send" class="form__submit">
+      </form>
+    </div>
+  </div>
+  <div class="comments__wall">
+    <ul class="comments__list">
+    </ul>
+    <div class="comments__control comments__control_right">
+      <button class="comments__btn comments__btn_prev">Previous comments</button>
+    </div>
+    <div class="comments__control comments__control_left">
+      <button class="comments__btn comments__btn_next">Next comments</button>
+    </div>
+  </div>`;
+  const formControl = document.querySelector('.form__control');
+  formControl.addEventListener('click', showHide);
+  document.querySelector('.form__form').addEventListener('submit', sendComment);
+  showComments.current = 0;
+  showComments(10);
+  document.querySelector('.comments__btn_prev').addEventListener('click', () => { showComments(10); });
+  document.querySelector('.comments__btn_next').addEventListener('click', () => { showComments(-10); });
 
   sessionStorage.setItem('activeSection', 'feedback');
 }
 
-function showCareer(e) {
-  history.pushState(null, "New title", "/career");
+// xhr.send(null);
 
-  let xhr = new XMLHttpRequest();
-  xhr.open('GET', `php/server.php?section=career`, true);
+//   sessionStorage.setItem('activeSection', 'feedback');
+// }
 
-  xhr.onreadystatechange = function(){
-    if(xhr.readyState != 4) return;
-    let info = JSON.parse(xhr.responseText);
+function showCareer() {
+  // history.pushState(null, 'New title', '/career');
 
-    document.querySelector(".main-content").innerHTML = `
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'php/server.php?section=career', true);
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState !== 4) return;
+    const info = JSON.parse(xhr.responseText);
+
+    document.querySelector('.main-content').innerHTML = `
     <h2 class="content__header content__header_margin">Career path</h2>
     <div class="content-info">
       <div class="career-image">
@@ -134,41 +138,42 @@ function showCareer(e) {
 
     document.querySelector('.career-path__element').classList.add('career-path__element_active');
 
-    createImagesHTML('company', info.images['company']);
+    createImagesHTML('company', info.images.company);
 
-    let image = document.getElementsByClassName('career-image__pic');
+    const image = document.getElementsByClassName('career-image__pic');
     let currentImage = 0;
-    let timer_id = setInterval(function() {
-      if (image.length == 0) {
-        clearInterval(timer_id);
+    const timerId = setInterval(() => {
+      if (image.length === 0) {
+        clearInterval(timerId);
         return;
-      };
+      }
 
       image[currentImage].style.opacity = 0;
-      image[currentImage++].style.position = 'absolute';
+      image[currentImage].style.position = 'absolute';
+      currentImage += 1;
       if (currentImage >= image.length) currentImage = 0;
       image[currentImage].style.opacity = '1';
       image[currentImage].style.position = 'static';
     }, 3000);
 
-    document.querySelector('.career-path__list').addEventListener('click', function(event) {
-      let target = event.target;
-      let elem = target.closest('.career-path__element');
+    document.querySelector('.career-path__list').addEventListener('click', function (event) {
+      const target = event.target;
+      const elem = target.closest('.career-path__element');
       if (!elem || elem.classList.contains('career-path__element_active')) return;
-      
+
       this.querySelector('.career-path__element_active').classList.remove('career-path__element_active');
       elem.classList.toggle('career-path__element_active');
 
       createImagesHTML(elem.dataset.name, info.images[elem.dataset.name]);
       currentImage = 0;
     });
-  }
+  };
 
   xhr.send(null);
 
   function createImagesHTML(section, images) {
     let text = '';
-    for (let img of images) {
+    for (const img of images) {
       text += `<img src="./images/career/${section}/${img}" alt="career image" class="career-image__pic">`;
     }
     document.querySelector('.career-image').innerHTML = text;
@@ -176,7 +181,7 @@ function showCareer(e) {
 
   function createTextHTML(info) {
     let text = '';
-    for (let item of info) {
+    for (const item of info) {
       text += `
       <li class="career-path__element" data-name="${item.dataset}">
         <div class="career-path__company-name">${item.company_name}</div>
@@ -189,17 +194,17 @@ function showCareer(e) {
   sessionStorage.setItem('activeSection', 'career');
 }
 
-function showAbout(e) {
-  history.pushState(null, "New title", "/about");
+function showAbout() {
+  // history.pushState(null, 'New title', '/about');
 
-  let xhr = new XMLHttpRequest();
-  xhr.open('GET', `php/server.php?section=about`, true);
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'php/server.php?section=about', true);
 
-  xhr.onreadystatechange = function(){
-    if(xhr.readyState != 4) return;
-    let info = JSON.parse(xhr.responseText);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState !== 4) return;
+    const info = JSON.parse(xhr.responseText);
 
-    document.querySelector(".main-content").innerHTML = `
+    document.querySelector('.main-content').innerHTML = `
     <div class="user-img">
       <div class="user-img__wrap">
         ${createImagesHTML(info.images)}
@@ -215,28 +220,27 @@ function showAbout(e) {
       </div>
     </div>`;
 
-    
-    let image = document.getElementsByClassName('user-img__photo');
+    const image = document.getElementsByClassName('user-img__photo');
     let currentImage = 0;
-    let timer_id = setInterval(function() {
-      if (image.length == 0) {
-        clearInterval(timer_id);
+    const timerId = setInterval(() => {
+      if (image.length === 0) {
+        clearInterval(timerId);
         return;
-      };
+      }
       image[currentImage++].style.opacity = 0;
       if (currentImage >= image.length) currentImage = 0;
       image[currentImage].style.opacity = '1';
     }, 3000);
-  }
+  };
 
   xhr.send(null);
 
   function createImagesHTML(images) {
     let text = '';
-    for (let img of images) {
+    for (const img of images) {
       text += `<img src="./images/about/small/${img}" alt="Yevhen Kozhevnikov" class="user-img__photo">`;
     }
-      return text;
+    return text;
   }
 
   function createTextHTML(info) {
@@ -249,33 +253,33 @@ function showAbout(e) {
   sessionStorage.setItem('activeSection', 'about');
 }
 
-function showPortfolio(e) {
-  history.pushState(null, "New title", "/portfolio");
+function showPortfolio() {
+  // history.pushState(null, 'New title', '/portfolio');
 
-  let xhr = new XMLHttpRequest();
-  xhr.open('GET', `php/server.php?section=portfolio`, true);
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'php/server.php?section=portfolio', true);
 
-  xhr.onreadystatechange = function(){
-    if(xhr.readyState != 4) return;
-    let info = JSON.parse(xhr.responseText);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState !== 4) return;
+    const info = JSON.parse(xhr.responseText);
 
-    document.querySelector(".main-content").innerHTML = `
+    document.querySelector('.main-content').innerHTML = `
     <h2 class="content__header content__header_margin">Portfolio</h2>
     <div class="content-info">
       <ul class="portfolio-list">
         ${createTextHTML(info)}
       </ul>
     </div>`;
-  }
+  };
 
   xhr.send(null);
 
   function createTextHTML(info) {
     let text = '';
-    for (let item of info) {
+    for (const item of info) {
       text += `
       <li class="portfolio-tile">
-        <a href="${item.link}" class="portfolio-tile__link">
+        <a href="${item.link}" class="portfolio-tile__link" target="_blank">
           <div class="portfolio-tile__image" style="background-image: url('../images/portfolio/${item.src}');"></div>
           <div class="portfolio-tile__name">${item.name}</div>
           <div class="portfolio-tile__about">${item.about}</div>
@@ -289,28 +293,28 @@ function showPortfolio(e) {
 }
 
 function toggleClass(elem) {
-  let activeLink = document.querySelector(".navigation__link_active");
-  if (activeLink) activeLink.classList.remove("navigation__link_active");
-  elem.classList.add("navigation__link_active");
+  const activeLink = document.querySelector('.navigation__link_active');
+  if (activeLink) activeLink.classList.remove('navigation__link_active');
+  elem.classList.add('navigation__link_active');
 }
 
 function navElemInitPosition() {
-  const navigationElements = document.querySelectorAll(".navigation__elem");
+  const navigationElements = document.querySelectorAll('.navigation__elem');
 
-  let startRightCord = document.querySelector(".sidebar").getBoundingClientRect().right;
+  const startRightCord = document.querySelector('.sidebar').getBoundingClientRect().right;
 
-  for (let navElem of navigationElements) {
+  for (const navElem of navigationElements) {
     navElem.style.right = startRightCord;
-    navElem.style.transition = ".5s";
+    navElem.style.transition = '.5s';
   }
 }
 
 function menuAnimation() {
-  const navigationElements = document.querySelectorAll(".navigation__elem");
+  const navigationElements = document.querySelectorAll('.navigation__elem');
   let num = 1;
 
   if (window.innerWidth > 768) {
-    for (let navElem of navigationElements) {
+    for (const navElem of navigationElements) {
       setTimeout(() => {
         navElem.style.right = 0;
       }, 1 * num);
@@ -325,24 +329,24 @@ function menuAnimation() {
   }
 }
 
-function download(e) {
-  e.preventDefault(e);
-  let xhr = new XMLHttpRequest();
-  xhr.open('GET', `php/download.php?file=yevhen_kozhevnikov.pdf`, true);
+// function download(e) {
+//   e.preventDefault(e);
+//   let xhr = new XMLHttpRequest();
+//   xhr.open('GET', `php/download.php?file=yevhen_kozhevnikov.pdf`, true);
 
-  xhr.onreadystatechange = function(){
-    if(xhr.readyState != 4) return;
-  }
+//   xhr.onreadystatechange = function(){
+//     if(xhr.readyState != 4) return;
+//   }
 
-  xhr.send(null);
-}
+//   xhr.send(null);
+//  }
 
 function showHide() {
-  let htmlFS = parseInt(getComputedStyle(document.documentElement).fontSize);
-  let wrap = this.nextElementSibling;
-  let form = document.querySelector(".form__form");
-  let formHeight = form.offsetHeight;
-  
+  const htmlFS = parseInt(getComputedStyle(document.documentElement).fontSize);
+  const wrap = this.nextElementSibling;
+  const form = document.querySelector('.form__form');
+  const formHeight = form.offsetHeight;
+
   if (showHide.state) {
     showHide.state = !showHide.state;
     wrap.style.maxHeight = `${formHeight / htmlFS}rem`;
@@ -353,7 +357,7 @@ function showHide() {
   } else {
     showHide.state = !showHide.state;
     wrap.style.maxHeight = `${formHeight / htmlFS}rem`;
-    setTimeout( () => {wrap.removeAttribute("style");}, 800);
+    setTimeout(() => { wrap.removeAttribute('style'); }, 800);
     // wrap.removeAttribute("style");
     form.style.top = 0;
     this.firstElementChild.style.marginTop = `-${parseInt(getComputedStyle(this).height) / htmlFS}rem`;
@@ -363,43 +367,59 @@ showHide.state = false;
 
 function sendComment(e) {
   e.preventDefault();
-  let xhr = new XMLHttpRequest();
+  const xhr = new XMLHttpRequest();
   xhr.open('POST', 'php/message.php', true);
   xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState != 4) return;
-    if (xhr.responseText === 'false') console.log("Something goes wrong");
-  }
 
-  let data = JSON.stringify({
+  const comment = {
     time: Date.now(),
     autor: this.name.value || 'anonymus',
-    text: this.message.value
-  });
-  
+    text: this.message.value,
+  };
+  const data = JSON.stringify(comment);
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState !== 4) return;
+    if (xhr.responseText === 'false') {
+      console.log('Something goes wrong');
+      return;
+    }
+    const date = new Date(comment.time);
+    const dateStr = `${fixDate(date.getHours())}:${fixDate(date.getMinutes())}:${fixDate(date.getSeconds())} ${fixDate(date.getDate())}-${fixDate(date.getMonth() + 1)}-${date.getFullYear()}`;
+
+    const commentsHTMLText = `
+    <li class="comments__comment comments__own">
+      <div class="comments__comment-text">${comment.text}</div>
+      <div class="comments__comment-info comments__comment-info_even">
+        <div class="comments__comment-time">${dateStr}</div>
+        <div class="comments__comment-autor">${comment.autor}</div>
+      </div>
+    </li>`;
+    document.querySelector('.comments__list').insertAdjacentHTML('afterBegin', commentsHTMLText);
+  };
+
   xhr.send(data);
 }
 
 function showComments(commentsNum) {
-  let xhr = new XMLHttpRequest();
+  const xhr = new XMLHttpRequest();
   xhr.open('POST', 'php/comments.php', true);
   xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
-  let data = JSON.stringify({
+  const data = JSON.stringify({
     amount: commentsNum,
-    startPosition: showComments.current
+    startPosition: showComments.current,
   });
-  
+
   showComments.current += commentsNum;
 
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState != 4) return;
-    
-    let data = JSON.parse(xhr.responseText);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState !== 4) return;
+
+    const data = JSON.parse(xhr.responseText);
     showComments.amount = data.amount[0];
-    
-    
+
     if (showComments.amount <= showComments.current) {
       document.querySelector('.comments__btn_prev').disabled = true;
     } else {
@@ -410,12 +430,11 @@ function showComments(commentsNum) {
     } else {
       document.querySelector('.comments__btn_next').disabled = false;
     }
-    let comments = data.data;
+    const comments = data.data;
     let commentsHTMLText = '';
-    for (let comment of comments) {
-      let date = new Date(+comment.time);
-      let month = date.getMonth() + 1;
-      let dateStr = `${fixDate(date.getHours())}:${fixDate(date.getMinutes())}:${fixDate(date.getSeconds())} ${fixDate(date.getDate())}-${fixDate(date.getMonth() + 1)}-${date.getFullYear()}`;
+    for (const comment of comments) {
+      const date = new Date(+comment.time);
+      const dateStr = `${fixDate(date.getHours())}:${fixDate(date.getMinutes())}:${fixDate(date.getSeconds())} ${fixDate(date.getDate())}-${fixDate(date.getMonth() + 1)}-${date.getFullYear()}`;
       commentsHTMLText += `
       <li class="comments__comment">
         <div class="comments__comment-text">${comment.text}</div>
@@ -423,10 +442,10 @@ function showComments(commentsNum) {
           <div class="comments__comment-time">${dateStr}</div>
           <div class="comments__comment-autor">${comment.autor}</div>
         </div>
-      </li>`
+      </li>`;
     }
     document.querySelector('.comments__list').innerHTML = commentsHTMLText;
-  }
+  };
 
   xhr.send(data);
 }
@@ -434,9 +453,6 @@ showComments.current = 0;
 showComments.amount = 0;
 
 function fixDate(datePart) {
-  if (datePart < 10) {
-    return `0${datePart}`;
-  } else {
-    return datePart;
-  }
+  if (datePart < 10) return `0${datePart}`;
+  return datePart;
 }

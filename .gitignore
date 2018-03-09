@@ -1,2 +1,5 @@
 /pages/
 *.xml
+/node_modules/
+.eslintrc
+*.json
