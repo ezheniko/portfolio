@@ -60,7 +60,7 @@ switch ($section) {
     
   case "portfolio":
 
-    $sth = $dbh->query("SELECT p.link, i.src, p.name, p.about, p.type FROM portfolio p LEFT JOIN images i ON p.image_id = i.id");
+    $sth = $dbh->query("SELECT p.link, i.src, p.name, p.about, p.type FROM portfolio p LEFT JOIN images i ON p.image_id = i.id ORDER BY p.id DESC");
 
     $data = $sth->fetchAll(PDO::FETCH_ASSOC);
 

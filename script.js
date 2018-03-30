@@ -216,7 +216,7 @@ function showAbout() {
         ${createTextHTML(info.about)}
       </div>
       <div class="download">
-        <a href="./files/yevhen_kozhevnikov.pdf" class="user-about__download-link" target="_blank">Download CV</a>
+        <a href="./files/kozhevnikovyevhen.pdf" class="user-about__download-link" target="_blank">Download CV</a>
       </div>
     </div>`;
 
